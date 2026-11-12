@@ -59,6 +59,15 @@ class RoomDay extends Model
         return $q->whereDate('room_days.data', $data);
     }
 
+    /** Ordine per piano e numero (posizioni fisse, per il tabellone). */
+    public function scopePerNumero(Builder $q): Builder
+    {
+        return $q->join('rooms', 'rooms.id', '=', 'room_days.room_id')
+            ->orderBy('rooms.piano')
+            ->orderByRaw('LENGTH(rooms.numero), rooms.numero')
+            ->select('room_days.*');
+    }
+
     /** Ordine per le addette: urgenti in cima, poi piano e numero. */
     public function scopeOrdinate(Builder $q): Builder
     {

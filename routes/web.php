@@ -31,6 +31,10 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 
 Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->name('reception.')->group(function () {
     Route::get('/', [TabelloneController::class, 'index'])->name('tabellone');
+    Route::get('/dati', [TabelloneController::class, 'dati'])->name('dati');
+    Route::post('/camera/{roomDay}/stato', [TabelloneController::class, 'stato'])->name('camera.stato');
+    Route::post('/camera/{roomDay}', [TabelloneController::class, 'aggiorna'])->name('camera.aggiorna');
+    Route::post('/segnalazione/{issue}', [TabelloneController::class, 'segnalazione'])->name('segnalazione');
     Route::get('/foto/{issue}', [FotoController::class, 'show'])->name('foto');
 
     Route::get('/camere', [CamereController::class, 'index'])->name('camere');

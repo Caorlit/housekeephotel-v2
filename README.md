@@ -13,7 +13,7 @@ Nessun servizio esterno.
 | 0 | Base, login reception, header di sicurezza, `deploy.sh` | ✅ |
 | 1 | Modello dati, isolamento tra hotel, cambi di stato, registro eventi, test | ✅ |
 | 2 | Schermata addette `/s/{token}`: tessere, Annulla, offline, PWA, foto, 6 lingue, PIN | ✅ |
-| 3 | Reception: tabellone completo, preparazione del giorno, addette (QR), camere | ⏳ (c'è solo un tabellone provvisorio) |
+| 3 | Reception: tabellone (polling 5 s, suoni, notifiche, segnalazioni), preparazione del giorno, addette (QR e foglio A4), camere | ✅ |
 | 4 | Superadmin e statistiche | ⏳ |
 
 ## Sviluppo in locale
