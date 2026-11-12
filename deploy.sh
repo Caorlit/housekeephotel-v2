@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Deploy su Hostinger (da lanciare via SSH nella cartella del progetto):
-#   cd ~/websites/Cn9B3bgz4/public_html/laravel && ./deploy.sh
+#   cd ~/websites/Cn9B3bgz4/.h5g/laravel && ./deploy.sh
 #
-# Il sito deve servire SOLO laravel/public (document root, oppure
-# deploy/public_html.htaccess copiato in public_html/.htaccess).
+# Il codice sta FUORI dalla cartella web. In public_html ci sono solo un
+# index.php che carica Laravel e la copia dei file statici (deploy/pubblica.sh).
 # Gli asset (public/build) sono già compilati nel repository: sul server non serve Node.
 set -euo pipefail
 
@@ -38,6 +38,9 @@ $PHP artisan config:cache
 $PHP artisan route:cache
 $PHP artisan view:cache
 $PHP artisan event:cache
+
+echo "→ Cartella web"
+./deploy/pubblica.sh
 
 echo "→ Permessi"
 chmod -R ug+rwX storage bootstrap/cache

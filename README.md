@@ -32,30 +32,26 @@ php artisan test
 
 Dati di prova: reception `reception@demo.test` / `demo1234`. Il seeder stampa i link di Maria (it), Olena (uk) e Rina (bn).
 
-## Primo deploy su Hostinger
+## Deploy su Hostinger
 
-1. **PHP:** in hPanel imposta PHP 8.3 o superiore per `app.housekeephotel.com`.
-2. **Database:** hPanel → Database → crea database e utente MySQL.
-3. **Codice fuori dalla cartella web**, via SSH:
-   ```bash
-   cd ~/domains/app.housekeephotel.com
-   git clone https://github.com/caorlit/housekeephotel-v2.git laravel
-   cd laravel
-   cp .env.example .env && nano .env      # DB, APP_URL, email, SUPERADMIN_*
-   composer install --no-dev --optimize-autoloader
-   php artisan key:generate
-   php artisan migrate --force --seed     # crea il superadmin
-   ```
-4. **La cartella pubblica deve servire SOLO `laravel/public`:**
-   ```bash
-   cd ~/domains/app.housekeephotel.com
-   mv public_html public_html.vecchia     # (vuota, si può cancellare)
-   ln -s laravel/public public_html
-   ```
-5. **Cron** (hPanel → Avanzate → Cron Job), ogni minuto:
-   `cd ~/domains/app.housekeephotel.com/laravel && php artisan schedule:run >> /dev/null 2>&1`
-6. Da ora in poi ogni aggiornamento: `cd ~/domains/app.housekeephotel.com/laravel && ./deploy.sh`.
-   Lo script controlla anche che `/.env`, `/composer.json`, `/vendor` e `/storage` **non** rispondano 200.
+Il piano isola ogni sito e il web server **ignora i `.htaccess`** (dettagli nel CLAUDE.md, §4).
+
+| Cosa | Dove |
+|---|---|
+| Codice Laravel (con `.env`, `storage`, foto) | `~/websites/Cn9B3bgz4/.h5g/laravel/` (fuori dalla cartella web) |
+| Cartella web | `~/websites/Cn9B3bgz4/public_html/`: solo `index.php` + copia di `build/`, `icons/`, `sw.js` |
+| Chiave di deploy GitHub (sola lettura) | `~/websites/Cn9B3bgz4/.h5g/ssh/housekeep` |
+
+Aggiornare il sito:
+
+```bash
+cd ~/websites/Cn9B3bgz4/.h5g/laravel && ./deploy.sh
+```
+
+`deploy.sh` scarica il codice, installa le dipendenze, lancia le migrazioni, ricrea le cache, rigenera `public_html` (`deploy/pubblica.sh`) e controlla che i file sensibili non siano raggiungibili.
+
+Cron (hPanel → Avanzate → Cron Job), ogni minuto:
+`cd ~/websites/Cn9B3bgz4/.h5g/laravel && php artisan schedule:run >> /dev/null 2>&1`
 
 ## Scelte tecniche da sapere
 
