@@ -45,7 +45,7 @@ Il piano isola ogni sito e il web server **ignora i `.htaccess`** (dettagli nel 
 Aggiornare il sito:
 
 ```bash
-cd ~/websites/Cn9B3bgz4/.h5g/laravel && ./deploy.sh
+cd ~/websites/Cn9B3bgz4/.h5g/laravel && bash deploy.sh
 ```
 
 `deploy.sh` scarica il codice, installa le dipendenze, lancia le migrazioni, ricrea le cache, rigenera `public_html` (`deploy/pubblica.sh`) e controlla che i file sensibili non siano raggiungibili.

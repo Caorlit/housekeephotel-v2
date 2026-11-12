@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Deploy su Hostinger (da lanciare via SSH nella cartella del progetto):
-#   cd ~/websites/Cn9B3bgz4/.h5g/laravel && ./deploy.sh
+#   cd ~/websites/Cn9B3bgz4/.h5g/laravel && bash deploy.sh
 #
 # Il codice sta FUORI dalla cartella web. In public_html ci sono solo un
 # index.php che carica Laravel e la copia dei file statici (deploy/pubblica.sh).
@@ -40,7 +40,7 @@ $PHP artisan view:cache
 $PHP artisan event:cache
 
 echo "→ Cartella web"
-./deploy/pubblica.sh
+bash deploy/pubblica.sh
 
 echo "→ Permessi"
 chmod -R ug+rwX storage bootstrap/cache
