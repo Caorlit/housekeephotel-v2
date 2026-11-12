@@ -32,4 +32,10 @@ return [
     'entra' => 'Enter',
     'cancella' => 'Delete',
     'segnalazione' => 'Report',
+    // Foglio A4 con il QR code (stampato dalla reception)
+    'stampa_titolo' => 'Your rooms app',
+    'stampa_1' => 'Point your phone camera at the code.',
+    'stampa_2' => 'Your page opens. Add it to your Home screen.',
+    'stampa_3' => 'Tap the room when you start (yellow) and when you finish (green).',
+    'stampa_4' => 'A problem? Press the red button and take a photo.',
 ];

@@ -32,4 +32,10 @@ return [
     'entra' => 'Entra',
     'cancella' => 'Cancella',
     'segnalazione' => 'Segnalazione',
+    // Foglio A4 con il QR code (stampato dalla reception)
+    'stampa_titolo' => 'La tua app per le camere',
+    'stampa_1' => 'Inquadra il codice con la fotocamera del telefono.',
+    'stampa_2' => 'Si apre la tua pagina. Aggiungila alla schermata Home.',
+    'stampa_3' => 'Tocca la camera quando inizi (giallo) e quando hai finito (verde).',
+    'stampa_4' => 'Un problema? Premi il pulsante rosso e fai una foto.',
 ];

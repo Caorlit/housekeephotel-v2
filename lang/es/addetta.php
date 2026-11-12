@@ -32,4 +32,10 @@ return [
     'entra' => 'Entrar',
     'cancella' => 'Borrar',
     'segnalazione' => 'Aviso',
+    // Foglio A4 con il QR code (stampato dalla reception)
+    'stampa_titolo' => 'Tu app de habitaciones',
+    'stampa_1' => 'Apunta la cámara del móvil al código.',
+    'stampa_2' => 'Se abre tu página. Añádela a la pantalla de inicio.',
+    'stampa_3' => 'Toca la habitación cuando empiezas (amarillo) y cuando terminas (verde).',
+    'stampa_4' => '¿Un problema? Pulsa el botón rojo y haz una foto.',
 ];

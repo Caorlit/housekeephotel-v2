@@ -32,4 +32,10 @@ return [
     'entra' => 'Intră',
     'cancella' => 'Șterge',
     'segnalazione' => 'Raportare',
+    // Foglio A4 con il QR code (stampato dalla reception)
+    'stampa_titolo' => 'Aplicația ta pentru camere',
+    'stampa_1' => 'Îndreaptă camera telefonului spre cod.',
+    'stampa_2' => 'Se deschide pagina ta. Adaug-o pe ecranul principal.',
+    'stampa_3' => 'Atinge camera când începi (galben) și când termini (verde).',
+    'stampa_4' => 'O problemă? Apasă butonul roșu și fă o poză.',
 ];

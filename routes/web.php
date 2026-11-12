@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Addetta\AddettaController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Reception\AddetteController;
 use App\Http\Controllers\Reception\CamereController;
 use App\Http\Controllers\Reception\FotoController;
 use App\Http\Controllers\Reception\TabelloneController;
@@ -35,6 +36,14 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
     Route::post('/camere', [CamereController::class, 'store'])->name('camere.store');
     Route::post('/camere/importa', [CamereController::class, 'importa'])->name('camere.importa');
     Route::put('/camere/{room}', [CamereController::class, 'update'])->name('camere.update');
+
+    Route::get('/addette', [AddetteController::class, 'index'])->name('addette');
+    Route::post('/addette', [AddetteController::class, 'store'])->name('addette.store');
+    Route::post('/addette/pin-hotel', [AddetteController::class, 'pinHotel'])->name('addette.pin-hotel');
+    Route::put('/addette/{staff}', [AddetteController::class, 'update'])->name('addette.update');
+    Route::post('/addette/{staff}/rigenera', [AddetteController::class, 'rigenera'])->name('addette.rigenera');
+    Route::post('/addette/{staff}/pin', [AddetteController::class, 'pin'])->name('addette.pin');
+    Route::get('/addette/{staff}/stampa', [AddetteController::class, 'stampa'])->name('addette.stampa');
 });
 
 Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')->group(function () {
