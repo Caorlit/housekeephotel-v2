@@ -16,7 +16,7 @@ abstract class TestCase extends BaseTestCase
     {
         $h = Hotel::factory()->create($hotel);
         $staff = Staff::factory()->create(['hotel_id' => $h->id]);
-        $giorni = collect(range(1, $camere))->map(function ($i) use ($h, $staff) {
+        $giorni = collect($camere > 0 ? range(1, $camere) : [])->map(function ($i) use ($h, $staff) {
             $room = Room::factory()->create(['hotel_id' => $h->id, 'numero' => (string) (100 + $i), 'piano' => 1]);
 
             return RoomDay::factory()->create([

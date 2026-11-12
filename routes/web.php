@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Addetta\AddettaController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Reception\CamereController;
 use App\Http\Controllers\Reception\FotoController;
 use App\Http\Controllers\Reception\TabelloneController;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -29,6 +30,11 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->name('reception.')->group(function () {
     Route::get('/', [TabelloneController::class, 'index'])->name('tabellone');
     Route::get('/foto/{issue}', [FotoController::class, 'show'])->name('foto');
+
+    Route::get('/camere', [CamereController::class, 'index'])->name('camere');
+    Route::post('/camere', [CamereController::class, 'store'])->name('camere.store');
+    Route::post('/camere/importa', [CamereController::class, 'importa'])->name('camere.importa');
+    Route::put('/camere/{room}', [CamereController::class, 'update'])->name('camere.update');
 });
 
 Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')->group(function () {
