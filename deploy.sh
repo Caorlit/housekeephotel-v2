@@ -45,6 +45,10 @@ bash deploy/pubblica.sh
 echo "→ Permessi"
 chmod -R ug+rwX storage bootstrap/cache
 
+# Fine manutenzione PRIMA dei controlli (altrimenti rispondono tutti 503).
+trap - EXIT
+$PHP artisan up
+
 echo "✓ Deploy completato"
 
 # Controllo che i file sensibili NON siano raggiungibili dal web.
