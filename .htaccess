@@ -1,0 +1,14 @@
+# Protezione di riserva: la cartella del progetto NON deve essere servita dal web.
+# Su Hostinger il codice sta in public_html/laravel/: qui si blocca tutto
+# tranne la sottocartella public/ (che ha il suo .htaccess di Laravel).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?!public/) - [F,L]
+</IfModule>
+
+# File nascosti (.env, .git, ...) mai serviti, in ogni caso.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes

@@ -1,0 +1,11 @@
+# Da copiare in public_html/.htaccess SOLO se non si può impostare la
+# document root su public_html/laravel/public (strada B).
+# Manda ogni richiesta dentro laravel/public/: così /.env diventa
+# laravel/public/.env, che non esiste (404).
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/laravel/public/
+    RewriteRule ^(.*)$ laravel/public/$1 [L,QSA]
+</IfModule>

@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 # Deploy su Hostinger (da lanciare via SSH nella cartella del progetto):
-#   cd ~/domains/app.housekeephotel.com/laravel && ./deploy.sh
+#   cd ~/websites/Cn9B3bgz4/public_html/laravel && ./deploy.sh
 #
-# Il codice sta FUORI dalla cartella web; public_html deve puntare SOLO a laravel/public.
+# Il sito deve servire SOLO laravel/public (document root, oppure
+# deploy/public_html.htaccess copiato in public_html/.htaccess).
 # Gli asset (public/build) sono già compilati nel repository: sul server non serve Node.
 set -euo pipefail
 
 cd "$(dirname "$0")"
 PHP="${PHP:-php}"
 COMPOSER="${COMPOSER:-composer}"
+# Su Hostinger (siti isolati) la cartella personale non è scrivibile:
+# Composer usa una cartella temporanea per la sua cache.
+export COMPOSER_HOME="${COMPOSER_HOME:-/tmp/composer-$(id -u)}"
 
 echo "→ Aggiorno il codice"
 git pull --ff-only
@@ -44,7 +48,8 @@ echo "✓ Deploy completato"
 URL="${APP_URL_CHECK:-https://app.housekeephotel.com}"
 if command -v curl >/dev/null; then
     echo "→ Verifica sicurezza su $URL"
-    for p in /.env /composer.json /storage/logs/laravel.log /vendor/autoload.php /artisan; do
+    for p in /.env /composer.json /storage/logs/laravel.log /vendor/autoload.php /artisan \
+             /laravel/.env /laravel/composer.json /laravel/storage/logs/laravel.log /.git/config /laravel/.git/config; do
         code=$(curl -s -o /dev/null -w '%{http_code}' "$URL$p" || echo 000)
         if [ "$code" = "200" ]; then
             echo "  ✗ ATTENZIONE: $p risponde 200!" >&2
