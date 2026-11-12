@@ -1,11 +1,23 @@
-# Da copiare in public_html/.htaccess SOLO se non si può impostare la
-# document root su public_html/laravel/public (strada B).
-# Manda ogni richiesta dentro laravel/public/: così /.env diventa
-# laravel/public/.env, che non esiste (404).
+# Da copiare in public_html/.htaccess (sito con document root = public_html).
+# Il codice sta in public_html/laravel/: internet deve vedere SOLO laravel/public.
+#
+# Le regole puntano direttamente ai file giusti (senza passare dal .htaccess
+# di laravel/public), perché LiteSpeed su Hostinger non lo applica bene
+# dopo una riscrittura ("No input file specified").
 Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{REQUEST_URI} !^/laravel/public/
-    RewriteRule ^(.*)$ laravel/public/$1 [L,QSA]
+
+    # Header Authorization verso PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # File statici pubblici (asset compilati, icone, service worker)
+    RewriteRule ^((build|icons)/.+|sw\.js|favicon\.ico|robots\.txt)$ laravel/public/$1 [L]
+
+    # Tutto il resto va a Laravel. Così /.env, /composer.json, /laravel/...
+    # non sono mai file serviti: rispondono con il 404 di Laravel.
+    RewriteCond %{REQUEST_URI} !^/laravel/public/(index\.php|build/|icons/|sw\.js|favicon\.ico|robots\.txt)
+    RewriteRule ^ laravel/public/index.php [L]
 </IfModule>
