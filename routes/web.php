@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Reception\AddetteController;
 use App\Http\Controllers\Reception\CamereController;
 use App\Http\Controllers\Reception\FotoController;
+use App\Http\Controllers\Reception\GiornataController;
 use App\Http\Controllers\Reception\TabelloneController;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Session\Middleware\StartSession;
@@ -36,6 +37,14 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
     Route::post('/camere', [CamereController::class, 'store'])->name('camere.store');
     Route::post('/camere/importa', [CamereController::class, 'importa'])->name('camere.importa');
     Route::put('/camere/{room}', [CamereController::class, 'update'])->name('camere.update');
+
+    Route::get('/giornata', [GiornataController::class, 'index'])->name('giornata');
+    Route::prefix('/giornata/{data}')->where(['data' => '\d{4}-\d{2}-\d{2}'])->name('giornata.')->group(function () {
+        Route::post('/applica', [GiornataController::class, 'applica'])->name('applica');
+        Route::post('/incolla', [GiornataController::class, 'incolla'])->name('incolla');
+        Route::post('/distribuisci', [GiornataController::class, 'distribuisci'])->name('distribuisci');
+        Route::post('/copia-ieri', [GiornataController::class, 'copiaIeri'])->name('copia-ieri');
+    });
 
     Route::get('/addette', [AddetteController::class, 'index'])->name('addette');
     Route::post('/addette', [AddetteController::class, 'store'])->name('addette.store');

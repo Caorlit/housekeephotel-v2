@@ -4,7 +4,7 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DKb18SDb.css",
+    "file": "assets/app-DiXmp6zM.css",
     "name": "app",
     "names": [
       "app.css"
@@ -22,7 +22,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BNuyYi-4.js",
+    "file": "assets/app-4VTL-zjt.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

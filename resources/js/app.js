@@ -1,6 +1,7 @@
 // Reception e amministrazione.
 import Alpine from 'alpinejs';
 import QRCode from 'qrcode';
+import giornata from './reception/giornata';
 
 /** Disegna un QR code (SVG) dentro l'elemento. */
 window.disegnaQr = async (el, testo) => {
@@ -19,6 +20,8 @@ window.copia = async (testo, pulsante) => {
         window.prompt('Copia il link:', testo);
     }
 };
+
+Alpine.data('giornata', giornata);
 
 window.Alpine = Alpine;
 Alpine.start();

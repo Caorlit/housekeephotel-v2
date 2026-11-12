@@ -23,6 +23,9 @@ class Staff extends Model
         'bn' => 'বাংলা',
     ];
 
+    /** Colori per distinguere le addette nella preparazione del giorno (non usano grigio/giallo/verde/rosso). */
+    public const COLORI = ['#2563eb', '#9333ea', '#ea580c', '#0d9488', '#db2777', '#4f46e5', '#a16207', '#0891b2', '#65a30d', '#be123c'];
+
     protected $table = 'staff';
 
     protected $fillable = ['hotel_id', 'nome', 'lingua', 'attivo'];
