@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    /* Font di sistema: niente servizi esterni, e copre anche bengali e ucraino. */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Bengali',
+        'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+}
+
+[x-cloak] { display: none !important; }
+
+/* Barra di avanzamento dei 5 secondi per "Annulla". */
+@keyframes hk-scorri {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Niente zoom col doppio tocco e niente evidenziazione blu sulle tessere. */
+.tessera { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }

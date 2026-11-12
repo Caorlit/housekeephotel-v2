@@ -1,0 +1,33 @@
+{
+  "_module.esm-CvIi2q49.js": {
+    "file": "assets/module.esm-CvIi2q49.js",
+    "name": "module.esm"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-_0fnm1D8.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/addetta.js": {
+    "file": "assets/addetta-ALrj2Vbx.js",
+    "name": "addetta",
+    "src": "resources/js/addetta.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-CvIi2q49.js"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DIRggoXJ.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-CvIi2q49.js"
+    ]
+  }
+}
