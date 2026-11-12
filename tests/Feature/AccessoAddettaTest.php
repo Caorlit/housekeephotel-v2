@@ -131,4 +131,13 @@ class AccessoAddettaTest extends TestCase
         $this->post('/login', ['email' => 'r@hotel.test', 'password' => 'segreta123'])->assertRedirect('/reception');
         $this->get('/reception')->assertOk();
     }
+
+    public function test_il_service_worker_non_va_in_cache(): void
+    {
+        $this->get('/sw.js')
+            ->assertOk()
+            ->assertHeader('Service-Worker-Allowed', '/s/')
+            ->assertHeaderMissing('Set-Cookie');
+        $this->assertStringContainsString('no-store', $this->get('/sw.js')->headers->get('Cache-Control'));
+    }
 }

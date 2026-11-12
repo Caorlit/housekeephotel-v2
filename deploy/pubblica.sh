@@ -26,7 +26,7 @@ require '$ROOT/public/index.php';
 PHP
 mv "$WEB/index.php.nuovo" "$WEB/index.php"
 
-for f in build icons sw.js favicon.ico robots.txt; do
+for f in build icons favicon.ico robots.txt; do
     if [ -e "$ROOT/public/$f" ]; then
         rm -rf "$WEB/$f.nuovo"
         cp -R "$ROOT/public/$f" "$WEB/$f.nuovo"
@@ -34,6 +34,9 @@ for f in build icons sw.js favicon.ico robots.txt; do
         mv "$WEB/$f.nuovo" "$WEB/$f"
     fi
 done
+
+# sw.js lo serve Laravel (senza cache): niente copia statica.
+rm -f "$WEB/sw.js"
 
 # Il vecchio .htaccess qui non serve (il server non lo legge).
 rm -f "$WEB/.htaccess"

@@ -11,6 +11,14 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 Route::get('/', fn () => redirect('/login'));
 
+// Service worker servito da Laravel e mai messo in cache (né dal browser né dalla
+// CDN di Hostinger), così gli aggiornamenti arrivano subito ai telefoni.
+Route::get('/sw.js', fn () => response()->file(public_path('sw.js'), [
+    'Content-Type' => 'application/javascript; charset=utf-8',
+    'Cache-Control' => 'no-cache, no-store, must-revalidate',
+    'Service-Worker-Allowed' => '/s/',
+]))->withoutMiddleware([StartSession::class, ShareErrorsFromSession::class, PreventRequestForgery::class])->name('sw');
+
 // --- Reception e superadmin: login standard -------------------------------
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'show'])->name('login');
