@@ -22,10 +22,13 @@ class RoomDay extends Model
 
     public const STATI = [self::DA_FARE, self::IN_PULIZIA, self::PRONTA];
 
+    // Valori nel database; nell'interfaccia: Cambio, Riassetto, Extra.
     public const TIPI = ['partenza', 'fermata', 'extra'];
 
+    public const NOMI_TIPI = ['partenza' => 'Cambio', 'fermata' => 'Riassetto', 'extra' => 'Extra'];
+
     protected $fillable = [
-        'hotel_id', 'room_id', 'data', 'tipo', 'stato', 'staff_id', 'urgente', 'nota_reception',
+        'hotel_id', 'room_id', 'stay_id', 'data', 'tipo', 'stato', 'staff_id', 'urgente', 'nota_reception',
     ];
 
     protected function casts(): array
@@ -42,6 +45,11 @@ class RoomDay extends Model
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function stay(): BelongsTo
+    {
+        return $this->belongsTo(Stay::class);
     }
 
     public function staff(): BelongsTo

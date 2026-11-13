@@ -123,7 +123,7 @@
                 <div class="flex items-start justify-between">
                     <div>
                         <div class="text-4xl font-black tabular-nums" x-text="aperta.numero"></div>
-                        <div class="text-sm text-slate-500" x-text="'Piano ' + aperta.piano + ' · ' + aperta.tipo + (aperta.note_fisse ? ' · ' + aperta.note_fisse : '')"></div>
+                        <div class="text-sm text-slate-500" x-text="'Piano ' + aperta.piano + ' · ' + ({ partenza: 'Cambio', fermata: 'Riassetto', extra: 'Extra' })[aperta.tipo] + (aperta.note_fisse ? ' · ' + aperta.note_fisse : '')"></div>
                     </div>
                     <button type="button" @click="aperta = null" class="size-10 rounded-full bg-slate-100 text-xl" aria-label="Chiudi">✕</button>
                 </div>

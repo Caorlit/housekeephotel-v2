@@ -8,6 +8,7 @@ use App\Models\Hotel;
 use App\Models\Issue;
 use App\Models\RoomDay;
 use App\Models\Staff;
+use App\Services\GeneratoreGiornate;
 use App\Services\RoomStateService;
 use App\Support\CurrentHotel;
 use Illuminate\Http\JsonResponse;
@@ -92,6 +93,7 @@ class TabelloneController extends Controller
     private function raccogli(Hotel $hotel): array
     {
         $oggi = $hotel->oggi();
+        app(GeneratoreGiornate::class)->genera($hotel, $oggi);
         $fuso = $hotel->fuso_orario;
         $ora = fn ($t) => $t?->timezone($fuso)->format('H:i');
 

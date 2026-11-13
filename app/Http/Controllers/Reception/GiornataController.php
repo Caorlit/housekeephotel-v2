@@ -7,6 +7,7 @@ use App\Models\EventLog;
 use App\Models\Room;
 use App\Models\RoomDay;
 use App\Models\Staff;
+use App\Services\GeneratoreGiornate;
 use App\Support\CurrentHotel;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\JsonResponse;
@@ -22,9 +23,12 @@ use Illuminate\View\View;
  */
 class GiornataController extends Controller
 {
-    public function index(Request $request, CurrentHotel $hotel): View
+    public function index(Request $request, CurrentHotel $hotel, GeneratoreGiornate $generatore): View
     {
         $data = $this->dataValida($request->query('data'), $hotel);
+        if ($data >= $hotel->get()->oggi()) {
+            $generatore->genera($hotel->get(), $data);
+        }
 
         return view('reception.giornata', [
             'iniziale' => $this->stato($data),

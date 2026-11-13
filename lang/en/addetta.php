@@ -18,7 +18,7 @@ return [
     'in_attesa' => 'waiting',
     'senza_rete' => 'No network',
     'partenza' => 'Check-out',
-    'fermata' => 'Stay-over',
+    'fermata' => 'Tidy-up',
     'extra' => 'Extra',
     'da_fare' => 'To do',
     'in_pulizia' => 'Cleaning',

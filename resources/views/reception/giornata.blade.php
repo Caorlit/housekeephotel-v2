@@ -102,7 +102,7 @@
                 <p class="font-semibold">Riepilogo</p>
                 <p class="text-3xl font-black" x-text="nelGiorno"></p>
                 <p class="text-sm text-slate-600">camere da pulire · <span x-text="conta(null)"></span> non assegnate</p>
-                <p class="text-sm text-slate-600"><span x-text="contaTipo('partenza')"></span> partenze · <span x-text="contaTipo('fermata')"></span> fermate</p>
+                <p class="text-sm text-slate-600"><span x-text="contaTipo('partenza')"></span> cambi · <span x-text="contaTipo('fermata')"></span> riassetti</p>
             </div>
 
             <form class="bg-white rounded-xl shadow-sm p-4 space-y-2" @submit.prevent="incolla()">

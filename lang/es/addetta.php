@@ -18,7 +18,7 @@ return [
     'in_attesa' => 'en espera',
     'senza_rete' => 'Sin red',
     'partenza' => 'Salida',
-    'fermata' => 'Estancia',
+    'fermata' => 'Repaso',
     'extra' => 'Extra',
     'da_fare' => 'Por hacer',
     'in_pulizia' => 'Limpiando',

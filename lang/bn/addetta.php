@@ -18,7 +18,7 @@ return [
     'in_attesa' => 'অপেক্ষায়',
     'senza_rete' => 'নেটওয়ার্ক নেই',
     'partenza' => 'চেক-আউট',
-    'fermata' => 'থাকছেন',
+    'fermata' => 'দৈনিক পরিষ্কার',
     'extra' => 'অতিরিক্ত',
     'da_fare' => 'বাকি',
     'in_pulizia' => 'পরিষ্কার চলছে',

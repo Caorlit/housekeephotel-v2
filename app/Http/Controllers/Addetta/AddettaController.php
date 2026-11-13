@@ -8,6 +8,7 @@ use App\Models\EventLog;
 use App\Models\Issue;
 use App\Models\RoomDay;
 use App\Models\Staff;
+use App\Services\GeneratoreGiornate;
 use App\Services\RoomStateService;
 use App\Support\StaffPinCookie;
 use Carbon\CarbonImmutable;
@@ -186,6 +187,7 @@ class AddettaController extends Controller
     private function statoAttuale(Staff $staff): array
     {
         $oggi = $staff->hotel->oggi();
+        app(GeneratoreGiornate::class)->genera($staff->hotel, $oggi);
 
         $camere = RoomDay::query()
             ->delGiorno($oggi)

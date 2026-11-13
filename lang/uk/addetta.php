@@ -18,7 +18,7 @@ return [
     'in_attesa' => 'очікує',
     'senza_rete' => 'Немає мережі',
     'partenza' => 'Виїзд',
-    'fermata' => 'Проживання',
+    'fermata' => 'Поточне',
     'extra' => 'Додатково',
     'da_fare' => 'Зробити',
     'in_pulizia' => 'Прибирання',

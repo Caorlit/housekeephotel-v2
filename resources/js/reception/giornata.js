@@ -2,8 +2,8 @@
 import { invia } from './invia';
 
 const TIPI = [
-    { valore: 'partenza', nome: 'Partenza', icona: '🧳' },
-    { valore: 'fermata', nome: 'Fermata', icona: '🛏' },
+    { valore: 'partenza', nome: 'Cambio', icona: '🧳' },
+    { valore: 'fermata', nome: 'Riassetto', icona: '🛏' },
     { valore: 'extra', nome: 'Extra', icona: '★' },
 ];
 
