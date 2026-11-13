@@ -14,7 +14,8 @@ Nessun servizio esterno.
 | 1 | Modello dati, isolamento tra hotel, cambi di stato, registro eventi, test | ✅ |
 | 2 | Schermata addette `/s/{token}`: tessere, Annulla, offline, PWA, foto, 6 lingue, PIN | ✅ |
 | 3 | Reception: tabellone (polling 5 s, suoni, notifiche, segnalazioni), preparazione del giorno, addette (QR e foglio A4), camere | ✅ |
-| 4 | Superadmin e statistiche | ⏳ |
+| 3b | Prenotazioni: planning, Cambio/Riassetto generati in automatico (stessa addetta), Sostituisci, import CSV | ✅ |
+| 4 | Superadmin, profilo, email (inviti, avvisi), statistiche | ⏳ |
 
 ## Sviluppo in locale
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Reception\AddetteController;
 use App\Http\Controllers\Reception\CamereController;
 use App\Http\Controllers\Reception\FotoController;
 use App\Http\Controllers\Reception\GiornataController;
+use App\Http\Controllers\Reception\ImportaPrenotazioniController;
 use App\Http\Controllers\Reception\PrenotazioniController;
 use App\Http\Controllers\Reception\TabelloneController;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -54,6 +55,9 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
 
     Route::get('/prenotazioni', [PrenotazioniController::class, 'index'])->name('prenotazioni');
     Route::post('/prenotazioni', [PrenotazioniController::class, 'store'])->name('prenotazioni.store');
+    Route::get('/prenotazioni/importa', [ImportaPrenotazioniController::class, 'form'])->name('prenotazioni.importa');
+    Route::post('/prenotazioni/importa', [ImportaPrenotazioniController::class, 'anteprima'])->name('prenotazioni.anteprima');
+    Route::post('/prenotazioni/importa/conferma', [ImportaPrenotazioniController::class, 'conferma'])->name('prenotazioni.conferma');
     Route::put('/prenotazioni/{stay}', [PrenotazioniController::class, 'update'])->name('prenotazioni.update');
     Route::delete('/prenotazioni/{stay}', [PrenotazioniController::class, 'destroy'])->name('prenotazioni.destroy');
 
