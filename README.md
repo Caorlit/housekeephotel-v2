@@ -51,7 +51,7 @@ cd ~/websites/Cn9B3bgz4/.h5g/laravel && bash deploy.sh
 
 `deploy.sh` scarica il codice, installa le dipendenze, lancia le migrazioni, ricrea le cache, rigenera `public_html` (`deploy/pubblica.sh`) e controlla che i file sensibili non siano raggiungibili.
 
-Email: casella `info@housekeephotel.com` (SMTP Hostinger). Nel `.env` del server: `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM_ADDRESS`; poi `php artisan config:cache` e prova con `php artisan hk:prova-email`.
+Email: casella `info@housekeephotel.com` (SMTP Hostinger). Sul server non c'è un editor: si configura con `php artisan hk:imposta-email info@housekeephotel.com` (chiede la password senza mostrarla) e si prova con `php artisan hk:prova-email`.
 
 Cron (hPanel → Avanzate → Cron Job), ogni minuto:
 `cd ~/websites/Cn9B3bgz4/.h5g/laravel && php artisan schedule:run >> /dev/null 2>&1`
