@@ -42,6 +42,10 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         $user = $request->user();
+        if (! $user->attivo) {
+            Auth::logout();
+            throw ValidationException::withMessages(['email' => 'Il tuo accesso è stato disattivato.']);
+        }
         if (! $user->isSuperadmin() && ! $user->hotel?->attivo) {
             Auth::logout();
             throw ValidationException::withMessages(['email' => 'Il tuo hotel non è attivo.']);

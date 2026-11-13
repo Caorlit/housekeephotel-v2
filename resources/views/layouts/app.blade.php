@@ -36,6 +36,7 @@
                     @endif
                 @endforeach
                 <span class="ml-auto text-slate-400 text-sm hidden sm:inline">{{ auth()->user()->hotel?->nome }}</span>
+                <a href="{{ route('profilo') }}" class="ml-3 text-slate-300 hover:text-white text-sm px-2 py-2" title="Il mio profilo">👤 {{ auth()->user()->nome }}</a>
                 <form method="POST" action="{{ route('logout') }}" class="ml-3">
                     @csrf
                     <button class="text-slate-300 hover:text-white text-sm px-2 py-2">Esci</button>

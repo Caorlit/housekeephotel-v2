@@ -11,7 +11,14 @@ class EnsureRole
 {
     public function handle(Request $request, Closure $next, string ...$ruoli): Response
     {
-        abort_unless($request->user() && in_array($request->user()->ruolo, $ruoli, true), 403);
+        $user = $request->user();
+        if ($user && ! $user->attivo) {
+            auth()->logout();
+            $request->session()->invalidate();
+
+            return redirect('/login')->withErrors(['email' => 'Il tuo accesso è stato disattivato.']);
+        }
+        abort_unless($user && in_array($user->ruolo, $ruoli, true), 403);
 
         return $next($request);
     }

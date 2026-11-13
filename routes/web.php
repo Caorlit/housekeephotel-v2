@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Addetta\AddettaController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\ProfiloController;
 use App\Http\Controllers\Reception\AddetteController;
 use App\Http\Controllers\Reception\CamereController;
 use App\Http\Controllers\Reception\FotoController;
@@ -28,6 +30,19 @@ Route::get('/sw.js', fn () => response()->file(public_path('sw.js'), [
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'show'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
+});
+
+// Password dimenticata e link d'invito (validi anche da utente non collegato).
+Route::middleware('throttle:10,1')->group(function () {
+    Route::get('/password/dimenticata', [PasswordController::class, 'richiesta'])->name('password.dimenticata');
+    Route::post('/password/dimenticata', [PasswordController::class, 'inviaLink'])->name('password.invia');
+    Route::get('/password/reimposta/{token}', [PasswordController::class, 'form'])->name('password.reimposta');
+    Route::post('/password/reimposta', [PasswordController::class, 'reimposta'])->name('password.salva');
+});
+
+Route::middleware(['auth', 'ruolo:reception,superadmin'])->group(function () {
+    Route::get('/profilo', [ProfiloController::class, 'show'])->name('profilo');
+    Route::put('/profilo', [ProfiloController::class, 'update'])->name('profilo.update');
 });
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 

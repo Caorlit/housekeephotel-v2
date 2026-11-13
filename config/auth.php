@@ -99,6 +99,14 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        // Inviti ai nuovi utenti della reception: il link per scegliere la password vale 7 giorni.
+        'inviti' => [
+            'provider' => 'users',
+            'table' => 'user_invitation_tokens',
+            'expire' => 60 * 24 * 7,
+            'throttle' => 0,
+        ],
     ],
 
     /*

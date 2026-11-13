@@ -26,5 +26,6 @@
         @enderror
         <button class="w-full rounded-lg bg-slate-900 text-white py-2.5 font-semibold">Accedi</button>
     </form>
+    <a href="{{ route('password.dimenticata') }}" class="block mt-4 text-sm underline text-slate-600">Password dimenticata?</a>
 </div>
 @endsection
