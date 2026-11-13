@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Addetta\AddettaController;
+use App\Http\Controllers\Admin\HotelController;
+use App\Http\Controllers\Admin\UtentiController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\ProfiloController;
@@ -86,7 +88,15 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
 });
 
 Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', fn () => view('admin.index'))->name('index');
+    Route::get('/', [HotelController::class, 'index'])->name('index');
+    Route::get('/hotel/nuovo', [HotelController::class, 'create'])->name('hotel.create');
+    Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
+    Route::get('/hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
+    Route::put('/hotel/{hotel}', [HotelController::class, 'update'])->name('hotel.update');
+    Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
+    Route::post('/hotel/{hotel}/utenti', [UtentiController::class, 'store'])->name('utenti.store');
+    Route::put('/utenti/{user}', [UtentiController::class, 'update'])->name('utenti.update');
+    Route::post('/utenti/{user}/invito', [UtentiController::class, 'invito'])->name('utenti.invito');
 });
 
 // --- Addette: link personale /s/{token} -----------------------------------

@@ -13,7 +13,7 @@
     @auth
         @php
             $voci = auth()->user()->isSuperadmin()
-                ? ['admin.index' => 'Amministrazione']
+                ? ['admin.index' => 'Hotel', 'admin.statistiche' => 'Statistiche']
                 : [
                     'reception.tabellone' => 'Tabellone',
                     'reception.giornata' => 'Preparazione del giorno',
