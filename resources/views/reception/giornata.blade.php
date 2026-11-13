@@ -8,6 +8,7 @@
         'incolla' => route('reception.giornata.incolla', $iniziale['data']),
         'distribuisci' => route('reception.giornata.distribuisci', $iniziale['data']),
         'copiaIeri' => route('reception.giornata.copia-ieri', $iniziale['data']),
+        'sostituisci' => route('reception.giornata.sostituisci', $iniziale['data']),
         'pagina' => route('reception.giornata'),
     ];
     $giorno = \Carbon\Carbon::parse($iniziale['data'])->locale('it');
@@ -127,6 +128,23 @@
                     <label class="flex items-center gap-2"><input type="checkbox" :value="a.id" x-model.number="distribuisciA"> <span class="size-3 rounded-full" :style="`background:${a.colore}`"></span> <span x-text="a.nome"></span></label>
                 </template>
                 <button type="button" @click="distribuisci()" class="w-full rounded-lg border-2 border-slate-900 py-2 font-semibold" :disabled="occupato || !distribuisciA.length">Distribuisci</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-4 space-y-2">
+                <p class="font-semibold">Sostituisci (giorno libero)</p>
+                <div class="flex items-center gap-2">
+                    <select x-model="sostDa" class="border rounded-lg px-2 py-2 flex-1" aria-label="Addetta assente">
+                        <option value="">Chi manca?</option>
+                        <template x-for="a in addette" :key="'sd' + a.id"><option :value="a.id" x-text="a.nome"></option></template>
+                    </select>
+                    <span>→</span>
+                    <select x-model="sostA" class="border rounded-lg px-2 py-2 flex-1" aria-label="Sostituta">
+                        <option value="">Chi la sostituisce?</option>
+                        <template x-for="a in addette" :key="'sa' + a.id"><option :value="a.id" x-text="a.nome"></option></template>
+                    </select>
+                </div>
+                <button type="button" @click="sostituisci()" class="w-full rounded-lg border-2 border-slate-900 py-2 font-semibold" :disabled="occupato || !sostDa || !sostA || sostDa === sostA">Sposta le sue camere</button>
+                <p class="text-xs text-slate-500">Solo per questo giorno: dal giorno dopo le camere tornano in automatico alla titolare.</p>
             </div>
 
             <div class="bg-white rounded-xl shadow-sm p-4">

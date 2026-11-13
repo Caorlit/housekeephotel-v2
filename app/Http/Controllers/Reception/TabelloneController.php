@@ -63,6 +63,9 @@ class TabelloneController extends Controller
         }
 
         $prima = $roomDay->only(array_keys($dati));
+        if (array_key_exists('staff_id', $dati)) {
+            $dati['sostituzione'] = false; // riassegnazione a mano = nuova titolare
+        }
         $roomDay->update($dati);
         EventLog::registra('camera_modificata', [
             'room_day_id' => $roomDay->id,

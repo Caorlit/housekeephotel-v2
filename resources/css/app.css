@@ -11,6 +11,10 @@
 
 [x-cloak] { display: none !important; }
 
+/* Planning prenotazioni: 14 giorni, ognuno diviso in due mezze colonne. */
+.grid-cols-14 { grid-template-columns: repeat(14, minmax(0, 1fr)); }
+.grid-cols-28 { grid-template-columns: repeat(28, minmax(0, 1fr)); }
+
 /* Barra di avanzamento dei 5 secondi per "Annulla". */
 @keyframes hk-scorri {
     from { transform: scaleX(1); }

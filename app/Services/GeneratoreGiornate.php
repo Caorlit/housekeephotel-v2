@@ -101,12 +101,16 @@ class GeneratoreGiornate
         }
     }
 
-    /** L'ultima addetta (ancora attiva) che ha pulito la camera prima di quel giorno. */
+    /**
+     * L'ultima addetta (ancora attiva) che ha pulito la camera prima di quel giorno.
+     * Le sostituzioni (giorni liberi) non contano: la camera torna alla titolare.
+     */
     public function addettaPer(int $roomId, string $data): ?int
     {
         return RoomDay::where('room_id', $roomId)
             ->whereDate('data', '<', $data)
             ->whereNotNull('staff_id')
+            ->where('sostituzione', false)
             ->whereHas('staff', fn ($q) => $q->where('attivo', true))
             ->orderByDesc('data')
             ->value('staff_id');

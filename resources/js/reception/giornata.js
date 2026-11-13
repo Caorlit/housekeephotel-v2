@@ -25,6 +25,8 @@ export default () => {
         incollaTipo: 'partenza',
         incollaAddetta: '',
         distribuisciA: cfg.stato.addette.map((a) => a.id),
+        sostDa: '',
+        sostA: '',
 
         get piani() {
             const per = new Map();
@@ -106,6 +108,13 @@ export default () => {
 
         distribuisci() {
             this.esegui(() => invia(cfg.urls.distribuisci, { staff_ids: this.distribuisciA }));
+        },
+
+        sostituisci() {
+            this.esegui(
+                () => invia(cfg.urls.sostituisci, { da: Number(this.sostDa), a: Number(this.sostA) }),
+                () => { this.sostDa = ''; this.sostA = ''; },
+            );
         },
 
         copiaIeri() {

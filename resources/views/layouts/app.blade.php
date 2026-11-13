@@ -17,6 +17,7 @@
                 : [
                     'reception.tabellone' => 'Tabellone',
                     'reception.giornata' => 'Preparazione del giorno',
+                    'reception.prenotazioni' => 'Prenotazioni',
                     'reception.addette' => 'Addette',
                     'reception.camere' => 'Camere',
                 ];

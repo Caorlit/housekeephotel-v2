@@ -1,7 +1,7 @@
-/** POST JSON con il token CSRF della pagina. */
-export async function invia(url, dati = {}) {
+/** Richiesta JSON (POST, PUT, DELETE) con il token CSRF della pagina. */
+export async function invia(url, dati = {}, metodo = 'POST') {
     const r = await fetch(url, {
-        method: 'POST',
+        method: metodo,
         credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json',
@@ -16,6 +16,9 @@ export async function invia(url, dati = {}) {
         throw new Error('sessione');
     }
     const json = await r.json().catch(() => ({}));
-    if (!r.ok) throw new Error(json.message || 'Errore ' + r.status);
+    if (!r.ok) {
+        const primo = json.errors ? Object.values(json.errors)[0]?.[0] : null;
+        throw new Error(primo || json.message || 'Errore ' + r.status);
+    }
     return json;
 }

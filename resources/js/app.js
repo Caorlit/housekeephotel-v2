@@ -3,6 +3,7 @@ import Alpine from 'alpinejs';
 import QRCode from 'qrcode';
 import giornata from './reception/giornata';
 import tabellone from './reception/tabellone';
+import planning from './reception/planning';
 
 /** Disegna un QR code (SVG) dentro l'elemento. */
 window.disegnaQr = async (el, testo) => {
@@ -24,6 +25,7 @@ window.copia = async (testo, pulsante) => {
 
 Alpine.data('giornata', giornata);
 Alpine.data('tabellone', tabellone);
+Alpine.data('planning', planning);
 
 window.Alpine = Alpine;
 Alpine.start();

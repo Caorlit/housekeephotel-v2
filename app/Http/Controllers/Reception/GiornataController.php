@@ -53,7 +53,7 @@ class GiornataController extends Controller
 
         foreach (Room::whereIn('id', $dati['room_ids'])->get() as $room) {
             if ($dati['azione'] === 'assegna') {
-                $this->giorno($room, $data, $tipo)->update(['staff_id' => $staff?->id]);
+                $this->giorno($room, $data, $tipo)->update(['staff_id' => $staff?->id, 'sostituzione' => false]);
             } elseif ($dati['azione'] === 'tipo') {
                 $this->giorno($room, $data, $tipo)->update(['tipo' => $tipo]);
             } elseif (! $this->togli($room, $data)) {
@@ -131,6 +131,35 @@ class GiornataController extends Controller
         return response()->json($this->stato($data) + [
             'avvisi' => [],
             'messaggio' => $libere->isEmpty() ? 'Non ci sono camere da assegnare.' : "{$libere->count()} camere distribuite.",
+        ]);
+    }
+
+    /**
+     * Giorno libero: tutte le camere non ancora pronte di un'addetta passano a un'altra.
+     * Sono segnate come sostituzione, così dal giorno dopo tornano alla titolare.
+     */
+    public function sostituisci(Request $request, string $data): JsonResponse
+    {
+        $this->verificaData($data);
+        $dati = $request->validate([
+            'da' => ['required', 'integer'],
+            'a' => ['nullable', 'integer', 'different:da'],
+        ]);
+        $da = Staff::findOrFail($dati['da']);
+        $a = $this->addettaValida($dati['a'] ?? null);
+
+        $n = RoomDay::delGiorno($data)
+            ->where('staff_id', $da->id)
+            ->where('stato', '!=', RoomDay::PRONTA)
+            ->update(['staff_id' => $a?->id, 'sostituzione' => $a !== null, 'updated_at' => now()]);
+
+        $this->registra($request, 'giornata_sostituisci', $data, ['da' => $da->id, 'a' => $a?->id, 'camere' => $n]);
+
+        return response()->json($this->stato($data) + [
+            'avvisi' => [],
+            'messaggio' => $n
+                ? "{$n} camere di {$da->nome} passate a ".($a?->nome ?? 'nessuna').'.'
+                : "{$da->nome} non ha camere da spostare.",
         ]);
     }
 

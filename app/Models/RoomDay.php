@@ -28,7 +28,7 @@ class RoomDay extends Model
     public const NOMI_TIPI = ['partenza' => 'Cambio', 'fermata' => 'Riassetto', 'extra' => 'Extra'];
 
     protected $fillable = [
-        'hotel_id', 'room_id', 'stay_id', 'data', 'tipo', 'stato', 'staff_id', 'urgente', 'nota_reception',
+        'hotel_id', 'room_id', 'stay_id', 'data', 'tipo', 'stato', 'staff_id', 'sostituzione', 'urgente', 'nota_reception',
     ];
 
     protected function casts(): array
@@ -36,6 +36,7 @@ class RoomDay extends Model
         return [
             'data' => 'date:Y-m-d',
             'urgente' => 'boolean',
+            'sostituzione' => 'boolean',
             'iniziata_alle' => 'datetime',
             'finita_alle' => 'datetime',
             'stato_cambiato_alle' => 'datetime',
