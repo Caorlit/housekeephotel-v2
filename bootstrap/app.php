@@ -4,6 +4,7 @@ use App\Http\Middleware\AuthenticateStaff;
 use App\Http\Middleware\EnsureRole;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetHotelFromUser;
+use App\Support\Avvisi;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -33,6 +34,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectUsersTo(fn (Request $r) => $r->user()?->isSuperadmin() ? '/admin' : '/reception');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        // Errori gravi in produzione: email ai superadmin (con limite, vedi Avvisi::errore).
+        $exceptions->report(function (Throwable $e) {
+            if (app()->isProduction()) {
+                Avvisi::errore($e);
+            }
+        });
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );

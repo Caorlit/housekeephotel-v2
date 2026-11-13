@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Addetta\AddettaController;
 use App\Http\Controllers\Admin\HotelController;
+use App\Http\Controllers\Admin\StatisticheController;
 use App\Http\Controllers\Admin\UtentiController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
@@ -89,6 +90,7 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
 
 Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('index');
+    Route::get('/statistiche', [StatisticheController::class, 'index'])->name('statistiche');
     Route::get('/hotel/nuovo', [HotelController::class, 'create'])->name('hotel.create');
     Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
     Route::get('/hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');

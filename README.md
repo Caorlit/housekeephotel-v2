@@ -15,7 +15,7 @@ Nessun servizio esterno.
 | 2 | Schermata addette `/s/{token}`: tessere, Annulla, offline, PWA, foto, 6 lingue, PIN | ✅ |
 | 3 | Reception: tabellone (polling 5 s, suoni, notifiche, segnalazioni), preparazione del giorno, addette (QR e foglio A4), camere | ✅ |
 | 3b | Prenotazioni: planning, Cambio/Riassetto generati in automatico (stessa addetta), Sostituisci, import CSV | ✅ |
-| 4 | Superadmin, profilo, email (inviti, avvisi), statistiche | ⏳ |
+| 4 | Superadmin (hotel, utenti con invito), profilo e password dimenticata, statistiche, avvisi email (nuovi hotel/utenti, riepilogo settimanale, inattività 7 gg, errori) | ✅ |
 
 ## Sviluppo in locale
 
@@ -50,6 +50,8 @@ cd ~/websites/Cn9B3bgz4/.h5g/laravel && bash deploy.sh
 ```
 
 `deploy.sh` scarica il codice, installa le dipendenze, lancia le migrazioni, ricrea le cache, rigenera `public_html` (`deploy/pubblica.sh`) e controlla che i file sensibili non siano raggiungibili.
+
+Email: casella `info@housekeephotel.com` (SMTP Hostinger). Nel `.env` del server: `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM_ADDRESS`; poi `php artisan config:cache` e prova con `php artisan hk:prova-email`.
 
 Cron (hPanel → Avanzate → Cron Job), ogni minuto:
 `cd ~/websites/Cn9B3bgz4/.h5g/laravel && php artisan schedule:run >> /dev/null 2>&1`
