@@ -19,9 +19,14 @@
 
     {{-- Intestazione: nome, data, stato della rete --}}
     <header class="sticky top-0 z-20 bg-slate-900 text-white px-4 pt-[max(env(safe-area-inset-top),0.75rem)] pb-3 flex items-center justify-between gap-3 shadow">
-        <div class="min-w-0">
-            <h1 class="text-2xl font-bold truncate">{{ __('addetta.ciao', ['nome' => $staff->nome]) }}</h1>
-            <p class="text-base text-slate-300 first-letter:uppercase">{{ $oggi->translatedFormat('l j F') }}</p>
+        <div class="min-w-0 flex items-center gap-2">
+            <div class="min-w-0">
+                <h1 class="text-2xl font-bold truncate">{{ __('addetta.ciao', ['nome' => $staff->nome]) }}</h1>
+                <p class="text-base text-slate-300 first-letter:uppercase">{{ $oggi->translatedFormat('l j F') }}</p>
+            </div>
+            <button type="button" x-show="prossimi.length" @click="apriProssimi()"
+                    class="shrink-0 size-14 rounded-xl bg-white/15 active:bg-white/30 text-3xl flex items-center justify-center"
+                    :aria-label="t.prossimi_giorni" :title="t.prossimi_giorni">📅</button>
         </div>
         <div class="shrink-0 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold"
              :class="online ? 'bg-slate-800' : 'bg-orange-500 text-slate-900'"
@@ -107,14 +112,6 @@
         </template>
     </main>
 
-    {{-- Pulsante per la pagina "Prossimi giorni" --}}
-    <div x-show="prossimi.length" class="px-3 mt-4">
-        <button type="button" @click="apriProssimi()"
-                class="w-full min-h-16 rounded-2xl border-2 border-slate-300 bg-white text-slate-700 text-xl font-bold flex items-center justify-center gap-2">
-            📅 <span x-text="t.prossimi_giorni"></span> <span class="text-slate-400">›</span>
-        </button>
-    </div>
-
     {{-- Barra "Annulla" (5 secondi) --}}
     <div x-show="annullabile" x-transition.opacity
          class="fixed inset-x-3 bottom-28 z-30 rounded-2xl bg-slate-900 text-white shadow-xl overflow-hidden">
@@ -152,31 +149,21 @@
         </div>
         <p class="mx-3 mt-3 rounded-xl bg-amber-100 text-amber-900 font-semibold px-3 py-2">⚠️ <span x-text="t.previsione_avviso"></span></p>
 
-        {{-- I 7 giorni --}}
-        <div class="flex gap-2 overflow-x-auto px-3 py-3">
+        {{-- Tutti i 7 giorni, uno sotto l'altro: sfondo alternato e riga spessa tra i giorni --}}
+        <div class="flex-1 overflow-y-auto mt-3 pb-8">
             <template x-for="(g, i) in prossimi" :key="g.data">
-                <button type="button" @click="giornoScelto = i"
-                        class="shrink-0 min-w-20 rounded-xl border-2 px-3 py-2 text-center"
-                        :class="giornoScelto === i ? 'bg-slate-900 border-slate-900 text-white' : 'bg-white border-slate-300 text-slate-700'">
-                    <span class="block text-base font-bold first-letter:uppercase" x-text="g.etichetta"></span>
-                    <span class="block text-sm" x-text="'(' + g.camere.length + ')'"></span>
-                </button>
-            </template>
-        </div>
-
-        {{-- Le camere del giorno scelto --}}
-        <div class="flex-1 overflow-y-auto px-3 pb-8">
-            <template x-if="prossimi[giornoScelto]">
-                <div>
-                    <div class="grid grid-cols-3 gap-2">
-                        <template x-for="c in prossimi[giornoScelto].camere" :key="prossimi[giornoScelto].data + c.numero">
-                            <div class="rounded-xl border-2 border-slate-300 bg-white py-3 text-center">
-                                <span class="block text-2xl" x-text="c.tipo === 'partenza' ? '🧳' : c.tipo === 'fermata' ? '🛏' : '★'"></span>
-                                <span class="block text-3xl font-black tabular-nums text-slate-800" x-text="c.numero"></span>
-                            </div>
-                        </template>
+                <div class="flex items-start gap-3 px-3 py-3 border-b-4 border-slate-300" :class="i % 2 ? 'bg-slate-200' : 'bg-white'">
+                    <div class="w-[4.75rem] shrink-0 whitespace-nowrap">
+                        <span class="block text-lg font-black text-slate-800 first-letter:uppercase leading-tight" x-text="g.etichetta"></span>
+                        <span class="block text-sm text-slate-500" x-text="'(' + g.camere.length + ')'"></span>
                     </div>
-                    <p x-show="prossimi[giornoScelto].camere.length === 0" class="pt-10 text-center text-2xl text-slate-400" x-text="t.nessuna_camera_giorno"></p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <template x-for="c in g.camere" :key="g.data + c.numero">
+                            <span class="rounded-lg border border-slate-400 bg-white px-2 py-1 text-lg font-bold tabular-nums text-slate-800"
+                                  x-text="(c.tipo === 'partenza' ? '🧳' : c.tipo === 'fermata' ? '🛏' : '★') + ' ' + c.numero"></span>
+                        </template>
+                        <span x-show="g.camere.length === 0" class="pt-1 text-lg text-slate-400">—</span>
+                    </div>
                 </div>
             </template>
         </div>

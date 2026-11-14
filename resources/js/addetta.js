@@ -61,7 +61,6 @@ Alpine.data('addetta', () => {
         camere: [],        // base + azioni in coda (quello che si vede)
         prossimi: [],      // previsione dei prossimi 7 giorni (solo da guardare)
         vistaProssimi: false,
-        giornoScelto: 0,
         coda: [],
         versione: null,
         online: navigator.onLine,
@@ -177,7 +176,6 @@ Alpine.data('addetta', () => {
         // --- Prossimi giorni -----------------------------------------------------
 
         apriProssimi() {
-            this.giornoScelto = 0;
             this.vistaProssimi = true;
             history.pushState({ hk: 'prossimi' }, '');
             window.scrollTo(0, 0);
