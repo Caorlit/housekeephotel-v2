@@ -164,6 +164,7 @@
                 <li>Dopo ogni tocco ha <b>5 secondi</b> per annullare.</li>
                 <li><b>Pulsante rosso</b>: sceglie la camera, scatta una foto, aggiunge una nota se vuole, <i>Invia</i>. Arriva a te sul tabellone.</li>
                 <li><b>📅</b> accanto al suo nome: le camere previste nei prossimi 7 giorni, con l'avviso che possono cambiare.</li>
+                <li>Quando <b>tu cambi qualcosa</b> sulle sue camere (urgente, nuova camera, stato, nota) il suo telefono <b>suona, vibra</b> e mostra un avviso entro una decina di secondi; la tessera lampeggia. Per l'<b>urgente</b> il suono è più forte. Funziona con lo schermo acceso e dopo che lei ha toccato la pagina almeno una volta.</li>
                 <li>Funziona anche <b>senza rete</b>: i tocchi restano sul telefono (lo vede in alto: <i>"Senza rete"</i> e il numero in attesa) e partono da soli quando torna la rete.</li>
             </ul>
         </section>
@@ -181,6 +182,7 @@
                     ['Non sento i suoni', 'Controlla che sul tabellone ci sia "🔔 Suoni attivi", clicca un punto qualsiasi della pagina (dopo un ricaricamento il browser li blocca) e che l\'audio del computer non sia muto.'],
                     ['Una camera è segnata pronta per sbaglio', 'Sul tabellone clicca la camera e scegli lo stato giusto. Oppure l\'addetta tocca la tessera verde e conferma "riaprire".'],
                     ['Un\'addetta è in ferie per una settimana', 'Ogni mattina usa <b>Sostituisci</b>. Se invece le sue camere devono passare stabilmente a un\'altra, assegnale con il pennello: da quel giorno la titolare è la nuova.'],
+                    ['Ho segnato una camera urgente ma l\'addetta non l\'ha sentito', 'Il telefono suona solo con lo <b>schermo acceso</b> e dopo che l\'addetta ha toccato la pagina almeno una volta (regola dei telefoni). Con lo schermo spento l\'avviso compare appena lo riaccende. Per le vere emergenze, meglio anche una chiamata.'],
                     ['Ho dimenticato la password', 'Nella pagina di accesso clicca <b>"Password dimenticata?"</b>: arriva un\'email con il link (vale 60 minuti). Email e password si cambiano anche da <b>👤</b> in alto a destra.'],
                 ] as [$domanda, $risposta])
                     <details class="rounded-lg border p-3 open:bg-slate-50">

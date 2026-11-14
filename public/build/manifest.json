@@ -4,7 +4,7 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C0vLqBjI.css",
+    "file": "assets/app-Bxxiy7Dv.css",
     "name": "app",
     "names": [
       "app.css"
@@ -13,7 +13,7 @@
     "isEntry": true
   },
   "resources/js/addetta.js": {
-    "file": "assets/addetta-BjS86P1G.js",
+    "file": "assets/addetta-YWBHyskd.js",
     "name": "addetta",
     "src": "resources/js/addetta.js",
     "isEntry": true,

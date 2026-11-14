@@ -23,3 +23,10 @@
 
 /* Niente zoom col doppio tocco e niente evidenziazione blu sulle tessere. */
 .tessera { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* Tessera cambiata dalla reception: lampeggia per qualche secondo. */
+@keyframes hk-lampeggia {
+    0%, 100% { outline-color: rgb(37 99 235 / 0); }
+    50% { outline-color: rgb(37 99 235 / 0.9); }
+}
+.hk-evidenzia { outline: 6px solid transparent; outline-offset: 10px; animation: hk-lampeggia 1s ease-in-out infinite; }

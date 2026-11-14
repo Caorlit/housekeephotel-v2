@@ -7,10 +7,12 @@
 import Alpine from 'alpinejs';
 import { comprimi } from './addetta/foto';
 import * as archivio from './addetta/archivio';
+import { sblocca, suonoAvviso, suonoUrgente } from './addetta/suoni';
 
 const ANNULLA_MS = 5000;
 const INVIO_OGNI_MS = 2000;
-const AGGIORNA_OGNI_MS = 20000;
+const AGGIORNA_OGNI_MS = 10000;
+const EVIDENZIA_MS = 10000;
 const PROSSIMO = { da_fare: 'in_pulizia', in_pulizia: 'pronta' };
 
 function uuid() {
@@ -71,6 +73,8 @@ Alpine.data('addetta', () => {
         notaAperta: null,
         problema: null,
         avviso: null,
+        avvisoUrgente: false,
+        evidenziate: {},   // id camera → true per qualche secondo dopo una modifica della reception
 
         get inAttesa() {
             return this.coda.length;
@@ -83,7 +87,11 @@ Alpine.data('addetta', () => {
             const salvati = leggi(K_DATI);
             const dati = salvati && salvati.data === cfg.dati.data && salvati.generato > cfg.dati.generato
                 ? salvati : cfg.dati;
-            this.applicaServer(dati);
+            this.applicaServer(dati, false);
+
+            // Il primo tocco sulla pagina sblocca i suoni (regola dei telefoni).
+            const sbloccaAudio = () => sblocca();
+            document.addEventListener('pointerdown', sbloccaAudio, { passive: true });
 
             // Il tasto "indietro" del telefono chiude la pagina dei prossimi giorni.
             window.addEventListener('popstate', () => { this.vistaProssimi = false; });
@@ -101,12 +109,47 @@ Alpine.data('addetta', () => {
 
         // --- Stato -----------------------------------------------------------
 
-        applicaServer(dati) {
+        /**
+         * @param avvisa false = nessun avviso (primo caricamento);
+         *               altrimenti un Set di camere da ignorare (quelle appena toccate dall'addetta).
+         */
+        applicaServer(dati, avvisa = new Set()) {
+            if (avvisa !== false) this.confronta(dati.camere, avvisa);
             this.base = dati.camere;
             this.prossimi = dati.prossimi ?? [];
             this.versione = dati.versione;
             scrivi(K_DATI, dati);
             this.ricalcola();
+        },
+
+        /** Cosa ha cambiato la reception sulle mie camere: suono, vibrazione, avviso e tessera evidenziata. */
+        confronta(nuove, ignora) {
+            const prima = new Map(this.base.map((c) => [c.id, c]));
+            const inCoda = new Set(this.coda.map((a) => a.room_day_id));
+            const novita = [];
+
+            for (const c of nuove) {
+                if (ignora.has(c.id) || inCoda.has(c.id)) continue;
+                const p = prima.get(c.id);
+                if (c.urgente && !p?.urgente) novita.push({ c, urgente: true, testo: `🔥 ${c.numero} ${this.t.urgente}` });
+                else if (!p) novita.push({ c, testo: `➕ ${c.numero}` });
+                else if (p.stato !== c.stato) novita.push({ c, testo: `${c.numero} → ${this.t[c.stato]}` });
+                else if (c.nota && c.nota !== p.nota) novita.push({ c, testo: `📝 ${c.numero}` });
+            }
+            if (!novita.length) return;
+
+            const urgente = novita.some((n) => n.urgente);
+            if (urgente) suonoUrgente(); else suonoAvviso();
+            vibra(urgente ? [300, 120, 300, 120, 300] : [120, 80, 120]);
+            this.mostraAvviso(novita.map((n) => n.testo).join(' · '), urgente);
+
+            for (const n of novita) {
+                this.evidenziate = { ...this.evidenziate, [n.c.id]: true };
+                setTimeout(() => {
+                    const { [n.c.id]: _, ...resto } = this.evidenziate;
+                    this.evidenziate = resto;
+                }, EVIDENZIA_MS);
+            }
         },
 
         ricalcola() {
@@ -233,9 +276,11 @@ Alpine.data('addetta', () => {
             this.problema = null;
         },
 
-        mostraAvviso(testo) {
+        mostraAvviso(testo, urgente = false) {
             this.avviso = testo;
-            setTimeout(() => { this.avviso = null; }, 2200);
+            this.avvisoUrgente = urgente;
+            clearTimeout(this.timerAvviso);
+            this.timerAvviso = setTimeout(() => { this.avviso = null; }, urgente ? 6000 : 3000);
         },
 
         // --- Sincronizzazione --------------------------------------------------
@@ -277,7 +322,8 @@ Alpine.data('addetta', () => {
                     if (r.ok) {
                         this.online = true;
                         this.togliDallaCoda(stati.map((a) => a.id));
-                        this.applicaServer(await r.json());
+                        // Le camere appena toccate non fanno suonare (è stata lei).
+                        this.applicaServer(await r.json(), new Set(stati.map((a) => a.room_day_id)));
                     } else if (!this.gestisciErrore(r) && r.status === 422) {
                         this.togliDallaCoda(stati.map((a) => a.id)); // dati non validi: inutile riprovare
                         this.ricalcola();

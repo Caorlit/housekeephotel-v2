@@ -61,6 +61,7 @@
                         'bg-yellow-300 text-slate-900': c.stato === 'in_pulizia',
                         'bg-green-600 text-white': c.stato === 'pronta',
                         'ring-[6px] ring-red-600 ring-offset-2 ring-offset-slate-50': c.urgente,
+                        'hk-evidenzia': evidenziate[c.id],
                     }"
                     :aria-label="c.numero + ' – ' + t[c.stato]">
 
@@ -128,8 +129,9 @@
     </div>
 
     {{-- Messaggio breve ("Inviata") --}}
-    <div x-show="avviso" x-transition.opacity class="fixed inset-x-0 top-24 z-40 flex justify-center pointer-events-none">
-        <span class="rounded-full bg-green-600 text-white text-xl font-bold px-6 py-3 shadow-lg" x-text="avviso"></span>
+    <div x-show="avviso" x-transition.opacity class="fixed inset-x-0 top-24 z-[60] flex justify-center pointer-events-none">
+        <span class="mx-3 rounded-full text-white text-xl font-bold px-6 py-3 shadow-lg text-center"
+              :class="avvisoUrgente ? 'bg-red-600 animate-pulse' : 'bg-green-600'" x-text="avviso"></span>
     </div>
 
     {{-- Pulsante rosso --}}
