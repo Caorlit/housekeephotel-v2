@@ -38,4 +38,7 @@ return [
     'stampa_2' => 'Se deschide pagina ta. Adaug-o pe ecranul principal.',
     'stampa_3' => 'Atinge camera când începi (galben) și când termini (verde).',
     'stampa_4' => 'O problemă? Apasă butonul roșu și fă o poză.',
+    // Previsione dei prossimi giorni (solo da guardare)
+    'prossimi_giorni' => 'Zilele următoare',
+    'previsione_avviso' => 'Estimare: se poate schimba',
 ];

@@ -38,4 +38,7 @@ return [
     'stampa_2' => 'Your page opens. Add it to your Home screen.',
     'stampa_3' => 'Tap the room when you start (yellow) and when you finish (green).',
     'stampa_4' => 'A problem? Press the red button and take a photo.',
+    // Previsione dei prossimi giorni (solo da guardare)
+    'prossimi_giorni' => 'Next days',
+    'previsione_avviso' => 'Forecast: may change',
 ];

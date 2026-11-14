@@ -59,6 +59,7 @@ Alpine.data('addetta', () => {
         ANNULLA_MS,
         base: [],          // le camere come le conosce il server
         camere: [],        // base + azioni in coda (quello che si vede)
+        prossimi: [],      // previsione dei prossimi 7 giorni (solo da guardare)
         coda: [],
         versione: null,
         online: navigator.onLine,
@@ -99,6 +100,7 @@ Alpine.data('addetta', () => {
 
         applicaServer(dati) {
             this.base = dati.camere;
+            this.prossimi = dati.prossimi ?? [];
             this.versione = dati.versione;
             scrivi(K_DATI, dati);
             this.ricalcola();

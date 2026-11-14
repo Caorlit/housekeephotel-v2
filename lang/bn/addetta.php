@@ -38,4 +38,7 @@ return [
     'stampa_2' => 'আপনার পেজ খুলবে। এটি হোম স্ক্রিনে যোগ করুন।',
     'stampa_3' => 'কাজ শুরু করলে রুমে চাপ দিন (হলুদ), শেষ হলে আবার চাপ দিন (সবুজ)।',
     'stampa_4' => 'সমস্যা? লাল বোতাম চাপুন এবং ছবি তুলুন।',
+    // Previsione dei prossimi giorni (solo da guardare)
+    'prossimi_giorni' => 'পরের দিনগুলো',
+    'previsione_avviso' => 'পূর্বাভাস: বদলাতে পারে',
 ];

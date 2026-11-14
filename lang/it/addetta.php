@@ -38,4 +38,7 @@ return [
     'stampa_2' => 'Si apre la tua pagina. Aggiungila alla schermata Home.',
     'stampa_3' => 'Tocca la camera quando inizi (giallo) e quando hai finito (verde).',
     'stampa_4' => 'Un problema? Premi il pulsante rosso e fai una foto.',
+    // Previsione dei prossimi giorni (solo da guardare)
+    'prossimi_giorni' => 'Prossimi giorni',
+    'previsione_avviso' => 'Previsione: può cambiare',
 ];

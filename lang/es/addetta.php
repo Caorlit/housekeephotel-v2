@@ -38,4 +38,7 @@ return [
     'stampa_2' => 'Se abre tu página. Añádela a la pantalla de inicio.',
     'stampa_3' => 'Toca la habitación cuando empiezas (amarillo) y cuando terminas (verde).',
     'stampa_4' => '¿Un problema? Pulsa el botón rojo y haz una foto.',
+    // Previsione dei prossimi giorni (solo da guardare)
+    'prossimi_giorni' => 'Próximos días',
+    'previsione_avviso' => 'Previsión: puede cambiar',
 ];

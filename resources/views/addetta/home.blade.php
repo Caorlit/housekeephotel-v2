@@ -107,6 +107,28 @@
         </template>
     </main>
 
+    {{-- Prossimi giorni: solo da guardare, con avviso che può cambiare --}}
+    <section x-show="prossimi.length" class="px-3 mt-6" aria-labelledby="titolo-prossimi">
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+            <h2 id="titolo-prossimi" class="text-xl font-bold text-slate-700">📅 <span x-text="t.prossimi_giorni"></span></h2>
+            <span class="rounded-full bg-amber-100 text-amber-900 text-sm font-semibold px-3 py-1">⚠️ <span x-text="t.previsione_avviso"></span></span>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-200">
+            <template x-for="g in prossimi" :key="g.data">
+                <div class="flex items-start gap-3 px-3 py-2.5">
+                    <span class="w-16 shrink-0 pt-1 text-base font-bold text-slate-600 first-letter:uppercase" x-text="g.etichetta"></span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <template x-for="c in g.camere" :key="g.data + c.numero">
+                            <span class="rounded-lg border border-slate-300 bg-slate-50 px-2 py-1 text-lg font-bold tabular-nums text-slate-700"
+                                  x-text="(c.tipo === 'partenza' ? '🧳 ' : c.tipo === 'fermata' ? '🛏 ' : '★ ') + c.numero"></span>
+                        </template>
+                        <span x-show="g.camere.length === 0" class="pt-1 text-lg text-slate-400">—</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
     {{-- Barra "Annulla" (5 secondi) --}}
     <div x-show="annullabile" x-transition.opacity
          class="fixed inset-x-3 bottom-28 z-30 rounded-2xl bg-slate-900 text-white shadow-xl overflow-hidden">

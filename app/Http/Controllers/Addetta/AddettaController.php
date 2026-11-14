@@ -9,6 +9,7 @@ use App\Models\Issue;
 use App\Models\RoomDay;
 use App\Models\Staff;
 use App\Services\GeneratoreGiornate;
+use App\Services\Previsione;
 use App\Services\RoomStateService;
 use App\Support\StaffPinCookie;
 use Carbon\CarbonImmutable;
@@ -210,10 +211,13 @@ class AddettaController extends Controller
             ->values()
             ->all();
 
+        $prossimi = app(Previsione::class)->perAddetta($staff);
+
         return [
             'data' => $oggi,
             'camere' => $camere,
-            'versione' => md5(json_encode($camere)),
+            'prossimi' => $prossimi,
+            'versione' => md5(json_encode([$camere, $prossimi])),
             'generato' => now()->getTimestampMs(),
         ];
     }
