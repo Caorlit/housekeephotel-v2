@@ -41,4 +41,6 @@ return [
     // Previsione dei prossimi giorni (solo da guardare)
     'prossimi_giorni' => 'Next days',
     'previsione_avviso' => 'Forecast: may change',
+    'oggi' => 'Today',
+    'nessuna_camera_giorno' => 'No rooms',
 ];

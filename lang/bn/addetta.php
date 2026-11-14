@@ -41,4 +41,6 @@ return [
     // Previsione dei prossimi giorni (solo da guardare)
     'prossimi_giorni' => 'পরের দিনগুলো',
     'previsione_avviso' => 'পূর্বাভাস: বদলাতে পারে',
+    'oggi' => 'আজ',
+    'nessuna_camera_giorno' => 'কোনো রুম নেই',
 ];

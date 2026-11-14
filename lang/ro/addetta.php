@@ -41,4 +41,6 @@ return [
     // Previsione dei prossimi giorni (solo da guardare)
     'prossimi_giorni' => 'Zilele următoare',
     'previsione_avviso' => 'Estimare: se poate schimba',
+    'oggi' => 'Azi',
+    'nessuna_camera_giorno' => 'Nicio cameră',
 ];

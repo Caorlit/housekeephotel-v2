@@ -41,4 +41,6 @@ return [
     // Previsione dei prossimi giorni (solo da guardare)
     'prossimi_giorni' => 'Наступні дні',
     'previsione_avviso' => 'Прогноз: може змінитися',
+    'oggi' => 'Сьогодні',
+    'nessuna_camera_giorno' => 'Немає номерів',
 ];

@@ -60,6 +60,8 @@ Alpine.data('addetta', () => {
         base: [],          // le camere come le conosce il server
         camere: [],        // base + azioni in coda (quello che si vede)
         prossimi: [],      // previsione dei prossimi 7 giorni (solo da guardare)
+        vistaProssimi: false,
+        giornoScelto: 0,
         coda: [],
         versione: null,
         online: navigator.onLine,
@@ -84,6 +86,8 @@ Alpine.data('addetta', () => {
                 ? salvati : cfg.dati;
             this.applicaServer(dati);
 
+            // Il tasto "indietro" del telefono chiude la pagina dei prossimi giorni.
+            window.addEventListener('popstate', () => { this.vistaProssimi = false; });
             window.addEventListener('online', () => { this.online = true; this.invia(); this.aggiorna(); });
             window.addEventListener('offline', () => { this.online = false; });
             document.addEventListener('visibilitychange', () => {
@@ -168,6 +172,20 @@ Alpine.data('addetta', () => {
             this.annullabile = null;
             clearTimeout(this.timerAnnulla);
             vibra(15);
+        },
+
+        // --- Prossimi giorni -----------------------------------------------------
+
+        apriProssimi() {
+            this.giornoScelto = 0;
+            this.vistaProssimi = true;
+            history.pushState({ hk: 'prossimi' }, '');
+            window.scrollTo(0, 0);
+        },
+
+        chiudiProssimi() {
+            if (history.state?.hk === 'prossimi') history.back();
+            else this.vistaProssimi = false;
         },
 
         // --- Pulsante rosso ----------------------------------------------------
