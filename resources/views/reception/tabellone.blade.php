@@ -50,6 +50,7 @@
             <option value="nessuna">Non assegnate</option>
         </select>
         <span class="ml-auto text-slate-500">Aggiornato alle <span x-text="ultimoAggiornamento"></span></span>
+        <a href="{{ route('reception.aiuto') }}#tabellone" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a>
         <template x-if="suoniAttivi">
             <button type="button" @click="disattivaSuoni()" class="rounded-lg border bg-white px-3 py-2">🔔 Suoni attivi</button>
         </template>

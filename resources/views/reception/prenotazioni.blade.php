@@ -21,7 +21,7 @@
 
 <div x-data="planning" x-cloak>
     <div class="flex flex-wrap items-center gap-2 mb-3">
-        <h1 class="text-2xl font-bold mr-2">Prenotazioni</h1>
+        <h1 class="text-2xl font-bold mr-2">Prenotazioni <a href="{{ route('reception.aiuto') }}#prenotazioni" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a></h1>
         <button type="button" @click="vai(-7)" class="rounded-lg border bg-white px-3 py-2">◀ 7 giorni</button>
         <a href="{{ route('reception.prenotazioni') }}" class="rounded-lg border bg-white px-3 py-2">Oggi</a>
         <button type="button" @click="vai(7)" class="rounded-lg border bg-white px-3 py-2">7 giorni ▶</button>

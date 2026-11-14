@@ -20,6 +20,7 @@
                     'reception.prenotazioni' => 'Prenotazioni',
                     'reception.addette' => 'Addette',
                     'reception.camere' => 'Camere',
+                    'reception.aiuto' => '❓ Aiuto',
                 ];
         @endphp
         <nav class="bg-slate-900 text-white print:hidden">

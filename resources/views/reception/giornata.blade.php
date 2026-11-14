@@ -18,7 +18,7 @@
 <div x-data="giornata" x-cloak>
     {{-- Data --}}
     <div class="flex flex-wrap items-center gap-2 mb-4">
-        <h1 class="text-2xl font-bold mr-2">Preparazione del giorno</h1>
+        <h1 class="text-2xl font-bold mr-2">Preparazione del giorno <a href="{{ route('reception.aiuto') }}#giornata" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a></h1>
         <a href="{{ route('reception.giornata', ['data' => $giorno->copy()->subDay()->toDateString()]) }}" class="rounded-lg border bg-white px-3 py-2" aria-label="Giorno prima">◀</a>
         <input type="date" value="{{ $iniziale['data'] }}" @change="vaiAl($event.target.value)" class="border rounded-lg px-3 py-2 bg-white">
         <a href="{{ route('reception.giornata', ['data' => $giorno->copy()->addDay()->toDateString()]) }}" class="rounded-lg border bg-white px-3 py-2" aria-label="Giorno dopo">▶</a>

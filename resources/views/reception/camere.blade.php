@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-    <h1 class="text-2xl font-bold">Camere</h1>
+    <h1 class="text-2xl font-bold">Camere <a href="{{ route('reception.aiuto') }}#camere" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a></h1>
     <span class="text-slate-500">{{ $totale }} camere attive</span>
 </div>
 

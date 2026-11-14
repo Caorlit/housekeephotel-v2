@@ -4,7 +4,7 @@
 @section('content')
 <div class="max-w-2xl">
     <a href="{{ route('reception.prenotazioni') }}" class="text-sm underline text-slate-600">← Prenotazioni</a>
-    <h1 class="text-2xl font-bold mt-2 mb-4">Importa prenotazioni da file CSV</h1>
+    <h1 class="text-2xl font-bold mt-2 mb-4">Importa prenotazioni da file CSV <a href="{{ route('reception.aiuto') }}#prenotazioni" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a></h1>
 
     <form method="POST" action="{{ route('reception.prenotazioni.anteprima') }}" enctype="multipart/form-data" class="bg-white rounded-xl shadow-sm p-5 space-y-4">
         @csrf

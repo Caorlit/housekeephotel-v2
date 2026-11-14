@@ -2,7 +2,7 @@
 @section('titolo', 'Addette')
 
 @section('content')
-<h1 class="text-2xl font-bold mb-4">Addette</h1>
+<h1 class="text-2xl font-bold mb-4">Addette <a href="{{ route('reception.aiuto') }}#addette" class="inline-flex size-7 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-700 align-middle hover:bg-slate-300" title="Aiuto">?</a></h1>
 
 <div class="grid md:grid-cols-[1fr_auto] gap-4 mb-6">
     <form method="POST" action="{{ route('reception.addette.store') }}" class="bg-white rounded-xl shadow-sm p-4">
