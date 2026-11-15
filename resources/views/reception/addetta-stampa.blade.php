@@ -33,7 +33,10 @@
             <li class="flex items-center gap-5"><span class="shrink-0 size-16 rounded-2xl bg-red-600 text-white flex items-center justify-center text-4xl">📷</span><span>{{ $testi['stampa_4'] }}</span></li>
         </ol>
 
-        <p class="mt-auto pt-8 text-xs text-slate-400">Housekeep · {{ $staff->hotel->nome }} · {{ now()->format('d/m/Y') }}</p>
+        <div class="mt-auto pt-8 flex flex-col items-center gap-1">
+            <img src="/brand/housekeep-logo.svg" alt="Housekeep Hotel" class="h-9 w-auto">
+            <p class="text-xs text-slate-400">{{ $staff->hotel->nome }} · {{ now()->format('d/m/Y') }}</p>
+        </div>
     </main>
 </body>
 </html>

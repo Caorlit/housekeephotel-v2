@@ -3,8 +3,8 @@
 
 @section('content')
 <div class="max-w-sm mx-auto mt-16 bg-white rounded-2xl shadow p-6">
-    <h1 class="text-2xl font-bold mb-1">Housekeep Hotel</h1>
-    <p class="text-slate-500 mb-6">Accesso reception</p>
+    <h1 class="mb-2"><img src="/brand/housekeep-logo.svg" alt="Housekeep Hotel – Simple Hotel Communication" class="w-full h-auto"></h1>
+    <p class="text-slate-500 mb-6 text-center">Accesso reception</p>
 
     <form method="POST" action="{{ url('/login') }}" class="space-y-4">
         @csrf

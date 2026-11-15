@@ -167,19 +167,19 @@ class AddettaController extends Controller
         $staff = $this->staff($request);
 
         return response()->json([
-            'name' => 'Housekeep – '.$staff->nome,
+            'name' => 'Housekeep Hotel – '.$staff->nome,
             'short_name' => 'Housekeep',
             'start_url' => route('addetta.home', $staff->token_accesso, false),
             'scope' => '/s/',
             'display' => 'standalone',
             'orientation' => 'portrait',
             'background_color' => '#f8fafc',
-            'theme_color' => '#0f172a',
+            'theme_color' => '#0EA5E9',
             'lang' => $staff->lingua,
             'icons' => [
                 ['src' => '/icons/icon-192.png', 'sizes' => '192x192', 'type' => 'image/png'],
                 ['src' => '/icons/icon-512.png', 'sizes' => '512x512', 'type' => 'image/png'],
-                ['src' => '/icons/icon-512.png', 'sizes' => '512x512', 'type' => 'image/png', 'purpose' => 'maskable'],
+                ['src' => '/icons/maskable-512.png', 'sizes' => '512x512', 'type' => 'image/png', 'purpose' => 'maskable'],
             ],
         ], 200, ['Content-Type' => 'application/manifest+json']);
     }

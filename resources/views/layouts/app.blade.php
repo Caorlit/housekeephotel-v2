@@ -6,7 +6,9 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('titolo', 'Housekeep') · Housekeep Hotel</title>
-    <link rel="icon" href="/icons/icon-192.png">
+    <meta name="theme-color" content="#0B3B5C">
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/brand/housekeep-simbolo.svg" type="image/svg+xml">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-100 text-slate-900 antialiased min-h-dvh">
@@ -25,7 +27,7 @@
         @endphp
         <nav class="bg-slate-900 text-white print:hidden">
             <div class="max-w-7xl mx-auto px-4 min-h-14 flex flex-wrap items-center gap-x-1 gap-y-1 py-2">
-                <span class="font-bold mr-4">Housekeep</span>
+                <span class="flex items-center gap-2 font-bold mr-4"><img src="/brand/housekeep-simbolo.svg" alt="" class="size-7">Housekeep</span>
                 @foreach ($voci as $rotta => $etichetta)
                     @if (Route::has($rotta))
                         <a href="{{ route($rotta) }}"
@@ -36,8 +38,8 @@
                            ])>{{ $etichetta }}</a>
                     @endif
                 @endforeach
-                <span class="ml-auto text-slate-400 text-sm hidden sm:inline">{{ auth()->user()->hotel?->nome }}</span>
-                <a href="{{ route('profilo') }}" class="ml-3 text-slate-300 hover:text-white text-sm px-2 py-2" title="Il mio profilo">👤 {{ auth()->user()->nome }}</a>
+                <span class="ml-auto text-slate-400 text-sm hidden xl:inline">{{ auth()->user()->hotel?->nome }}</span>
+                <a href="{{ route('profilo') }}" class="ml-auto xl:ml-3 text-slate-300 hover:text-white text-sm px-2 py-2" title="Il mio profilo">👤 {{ auth()->user()->nome }}</a>
                 <form method="POST" action="{{ route('logout') }}" class="ml-3">
                     @csrf
                     <button class="text-slate-300 hover:text-white text-sm px-2 py-2">Esci</button>

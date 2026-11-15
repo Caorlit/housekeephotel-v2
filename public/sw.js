@@ -3,7 +3,7 @@
 // - File statici (/build, /icons): dalla cache, aggiornati quando cambiano.
 // - Le chiamate dati (POST, JSON) non passano mai dalla cache.
 
-const VERSIONE = 'hk-v1';
+const VERSIONE = 'hk-v2'; // cambiare a ogni modifica di icone o service worker
 
 self.addEventListener('install', () => self.skipWaiting());
 

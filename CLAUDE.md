@@ -130,4 +130,5 @@ Un hotel, 1 utente reception, 2–4 addette, 20–60 camere, per 2–3 settimane
 
 ## Riferimenti
 
-- Vecchio sistema (solo consultazione, **non** toccarlo): piano Hostinger "Blu Est", `admin.housekeephotel.com/house_keeping/` e `webapp.housekeephotel.com/house_keeping/`. Analisi tecnica nel progetto claude.ai "Housekeephotel", documento `analisi-tecnica-housekeephotel.md`.
+- Vecchio sistema: **dismesso** il 15/11/2026 (Marco ha cancellato `admin.` e `webapp.housekeephotel.com` e il vecchio sito dal piano "Blu Est"). Il dominio principale `housekeephotel.com` è libero per il sito di presentazione. Analisi tecnica storica nel progetto claude.ai "Housekeephotel", documento `analisi-tecnica-housekeephotel.md`.
+- Marchio: logo e colori in `public/brand/` (vedi `LEGGIMI.md`). Nome "Housekeep Hotel", sottotitolo "Simple Hotel Communication".
