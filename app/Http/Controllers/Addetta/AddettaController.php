@@ -177,9 +177,9 @@ class AddettaController extends Controller
             'theme_color' => '#0EA5E9',
             'lang' => $staff->lingua,
             'icons' => [
-                ['src' => '/icons/icon-192.png', 'sizes' => '192x192', 'type' => 'image/png'],
-                ['src' => '/icons/icon-512.png', 'sizes' => '512x512', 'type' => 'image/png'],
-                ['src' => '/icons/maskable-512.png', 'sizes' => '512x512', 'type' => 'image/png', 'purpose' => 'maskable'],
+                ['src' => '/icons/hk-icon-192.png', 'sizes' => '192x192', 'type' => 'image/png'],
+                ['src' => '/icons/hk-icon-512.png', 'sizes' => '512x512', 'type' => 'image/png'],
+                ['src' => '/icons/hk-maskable-512.png', 'sizes' => '512x512', 'type' => 'image/png', 'purpose' => 'maskable'],
             ],
         ], 200, ['Content-Type' => 'application/manifest+json']);
     }

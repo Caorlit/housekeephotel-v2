@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('titolo', 'Housekeep') · Housekeep Hotel</title>
     <meta name="theme-color" content="#0B3B5C">
-    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/icons/hk-favicon-32.png" sizes="32x32">
     <link rel="icon" href="/brand/housekeep-simbolo.svg" type="image/svg+xml">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

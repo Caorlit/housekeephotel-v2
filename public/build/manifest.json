@@ -4,7 +4,7 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Rz4sKgnF.css",
+    "file": "assets/app-DrwnbNnR.css",
     "name": "app",
     "names": [
       "app.css"
@@ -13,7 +13,7 @@
     "isEntry": true
   },
   "resources/js/addetta.js": {
-    "file": "assets/addetta-YWBHyskd.js",
+    "file": "assets/addetta-9BYgF-zB.js",
     "name": "addetta",
     "src": "resources/js/addetta.js",
     "isEntry": true,
@@ -22,7 +22,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DkiZeyo4.js",
+    "file": "assets/app-SDwCTE92.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

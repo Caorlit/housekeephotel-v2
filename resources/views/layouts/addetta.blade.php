@@ -13,9 +13,9 @@
     @isset($staff)
         <link rel="manifest" href="{{ route('addetta.manifest', $staff->token_accesso, false) }}">
     @endisset
-    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/icons/hk-favicon-32.png" sizes="32x32">
     <link rel="icon" href="/brand/housekeep-simbolo.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/icons/hk-apple-touch-icon.png">
     @vite(['resources/css/app.css', 'resources/js/addetta.js'])
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased select-none">

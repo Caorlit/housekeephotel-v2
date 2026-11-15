@@ -47,7 +47,7 @@ function suonoSegnalazione() {
 function notifica(titolo, corpo) {
     try {
         if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification(titolo, { body: corpo, icon: '/icons/icon-192.png', tag: titolo });
+            new Notification(titolo, { body: corpo, icon: '/icons/hk-icon-192.png', tag: titolo });
         }
     } catch { /* niente */ }
 }

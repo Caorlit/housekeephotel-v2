@@ -387,7 +387,7 @@ Alpine.data('addetta', () => {
                     location.pathname,
                     ...[...document.querySelectorAll('script[src], link[rel="stylesheet"], link[rel="manifest"]')]
                         .map((el) => el.src || el.href),
-                    '/icons/icon-192.png',
+                    '/icons/hk-icon-192.png',
                 ];
                 (reg.active || navigator.serviceWorker.controller)?.postMessage({ tipo: 'precache', urls });
             } catch { /* niente PWA: l'app funziona lo stesso */ }
