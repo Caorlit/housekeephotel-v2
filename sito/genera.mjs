@@ -71,15 +71,15 @@ function intestazione(t) {
         : `<a href="${l.percorso}" hreflang="${l.lang}" lang="${l.lang}" class="px-2 py-1 rounded-md hover:bg-slate-100">${l.lang.toUpperCase()}</a>`).join('');
     return `
 <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="contenitore flex items-center gap-4 h-16">
-        <a href="${t.percorso}" class="shrink-0" aria-label="Housekeep Hotel"><img src="/brand/housekeep-logo.svg" alt="Housekeep Hotel" class="h-9 sm:h-10 w-auto" width="230" height="46"></a>
-        <nav class="hidden lg:flex items-center gap-1 ml-4 text-slate-700 font-semibold" aria-label="Menu">
-            ${voci.map(([h, n]) => `<a href="${h}" class="px-3 py-2 rounded-lg hover:bg-slate-100">${n}</a>`).join('')}
+    <div class="contenitore flex items-center gap-4 h-20 sm:h-24">
+        <a href="${t.percorso}" class="shrink-0" aria-label="Housekeep Hotel"><img src="/brand/housekeep-logo-testata.svg" alt="Housekeep Hotel – Simple Hotel Communication" class="h-11 sm:h-14 xl:h-16 w-auto" width="296" height="64"></a>
+        <nav class="hidden xl:flex items-center gap-0.5 ml-2 text-slate-700 font-semibold" aria-label="Menu">
+            ${voci.map(([h, n]) => `<a href="${h}" class="px-2.5 py-2 rounded-lg hover:bg-slate-100 whitespace-nowrap">${n}</a>`).join('')}
         </nav>
         <div class="ml-auto flex items-center gap-2 text-sm">
             <div class="hidden sm:flex items-center gap-1 text-slate-600" aria-label="Lingua">${lingue}</div>
-            <a href="${APP}/login" class="hidden md:inline px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 font-semibold">${t.nav.accedi}</a>
-            <a href="#prova" class="pulsante pulsante-primario !py-2 !px-4">${t.nav.cta}</a>
+            <a href="${APP}/login" class="hidden md:inline xl:hidden 2xl:inline px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 font-semibold">${t.nav.accedi}</a>
+            <a href="#prova" class="pulsante pulsante-primario !py-2 !px-3 sm:!px-4 text-sm sm:text-base whitespace-nowrap">${t.nav.cta}</a>
         </div>
     </div>
     <div class="sm:hidden border-t border-slate-100 py-1 flex justify-center gap-1 text-sm text-slate-600">${lingue}</div>
@@ -91,7 +91,7 @@ function piede(t) {
 <footer class="bg-slate-900 text-slate-300">
     <div class="contenitore py-12 grid gap-8 md:grid-cols-[1fr_auto]">
         <div>
-            <img src="/brand/housekeep-logo-negativo.svg" alt="Housekeep Hotel" class="h-10 w-auto" width="230" height="46" loading="lazy">
+            <img src="/brand/housekeep-logo-testata-negativo.svg" alt="Housekeep Hotel – Simple Hotel Communication" class="h-14 w-auto" width="258" height="56" loading="lazy">
             <p class="mt-4 text-sm leading-relaxed">${AZIENDA.nome} · ${AZIENDA.indirizzo}<br>P.IVA ${AZIENDA.piva}<br>
             <a href="mailto:${AZIENDA.email}" class="hover:text-white">${AZIENDA.email}</a> · <a href="tel:${AZIENDA.telefono.replaceAll(' ', '')}" class="hover:text-white">${AZIENDA.telefono}</a></p>
         </div>
@@ -159,7 +159,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Come funziona -->
-    <section id="come" class="py-20 bg-slate-50 scroll-mt-16">
+    <section id="come" class="py-20 bg-slate-50 scroll-mt-28">
         <div class="contenitore">
             <h2 class="titolo-sezione">${t.come.titolo}</h2>
             <p class="sottotitolo-sezione">${t.come.sottotitolo}</p>
@@ -179,7 +179,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Addette -->
-    <section id="addette" class="py-20 bg-white scroll-mt-16">
+    <section id="addette" class="py-20 bg-white scroll-mt-28">
         <div class="contenitore grid lg:grid-cols-[1fr_auto] gap-14 items-center">
             <div>
                 <h2 class="titolo-sezione !text-left">${t.addette.titolo}</h2>
@@ -199,7 +199,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Reception -->
-    <section id="reception" class="py-20 bg-gradient-to-b from-slate-50 to-white scroll-mt-16">
+    <section id="reception" class="py-20 bg-gradient-to-b from-slate-50 to-white scroll-mt-28">
         <div class="contenitore">
             <h2 class="titolo-sezione">${t.reception.titolo}</h2>
             <p class="sottotitolo-sezione">${t.reception.sottotitolo}</p>
@@ -216,7 +216,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Prezzi -->
-    <section id="prezzi" class="py-20 bg-white scroll-mt-16">
+    <section id="prezzi" class="py-20 bg-white scroll-mt-28">
         <div class="contenitore">
             <h2 class="titolo-sezione">${t.prezzi.titolo}</h2>
             <p class="sottotitolo-sezione">${t.prezzi.sottotitolo}</p>
@@ -238,7 +238,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Domande -->
-    <section id="faq" class="py-20 bg-slate-50 scroll-mt-16">
+    <section id="faq" class="py-20 bg-slate-50 scroll-mt-28">
         <div class="contenitore max-w-3xl">
             <h2 class="titolo-sezione">${t.faq.titolo}</h2>
             <div class="mt-10 space-y-3">
@@ -252,7 +252,7 @@ ${intestazione(t)}
     </section>
 
     <!-- Prova gratis -->
-    <section id="prova" class="py-20 bg-gradient-to-br from-sky-600 to-teal-600 text-white scroll-mt-16">
+    <section id="prova" class="py-20 bg-gradient-to-br from-sky-600 to-teal-600 text-white scroll-mt-28">
         <div class="contenitore grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
             <div>
                 <h2 class="text-3xl sm:text-4xl font-extrabold">${t.prova.titolo}</h2>

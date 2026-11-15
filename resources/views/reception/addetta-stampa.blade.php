@@ -34,7 +34,7 @@
         </ol>
 
         <div class="mt-auto pt-8 flex flex-col items-center gap-1">
-            <img src="/brand/housekeep-logo.svg" alt="Housekeep Hotel" class="h-9 w-auto">
+            <img src="/brand/housekeep-logo-testata.svg" alt="Housekeep Hotel" class="h-12 w-auto">
             <p class="text-xs text-slate-400">{{ $staff->hotel->nome }} · {{ now()->format('d/m/Y') }}</p>
         </div>
     </main>

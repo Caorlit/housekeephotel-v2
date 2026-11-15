@@ -1,6 +1,7 @@
 # Marchio Housekeep Hotel
 
 - `housekeep-logo.svg`: logo completo (sfondo chiaro). `housekeep-logo-negativo.svg`: per sfondi scuri.
+- `housekeep-logo-testata.svg` / `-testata-negativo.svg`: variante con sottotitolo più grande, da usare quando il logo è piccolo (intestazioni, login).
 - `housekeep-simbolo.svg`: solo il simbolo (icona). Le icone dell'app sono in `public/icons/`.
 - Le scritte sono già convertite in tracciati: non serve installare il carattere.
 
