@@ -12,6 +12,7 @@ use App\Models\Staff;
 use App\Models\TrialRequest;
 use App\Models\User;
 use App\Support\Avvisi;
+use Carbon\CarbonImmutable;
 use DateTimeZone;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -43,7 +44,8 @@ class HotelController extends Controller
     {
         // Dati precompilati quando si arriva da una richiesta di prova del sito.
         return view('admin.hotel-form', [
-            'hotel' => new Hotel(['fuso_orario' => 'Europe/Rome', 'attivo' => true] + $request->only(['nome', 'email', 'telefono', 'indirizzo'])),
+            'hotel' => new Hotel(['fuso_orario' => 'Europe/Rome', 'attivo' => true, 'prova_fino_al' => now()->addMonthsNoOverflow(Hotel::MESI_PROVA)->toDateString()]
+                + $request->only(['nome', 'email', 'telefono', 'indirizzo'])),
             'fusi' => $this->fusi(),
             'richiesta' => $request->integer('richiesta') ?: null,
         ]);
@@ -80,6 +82,20 @@ class HotelController extends Controller
         return back()->with('ok', 'Hotel salvato.'.($hotel->attivo ? '' : ' È disattivato: reception e addette non possono entrare.'));
     }
 
+    /** Pagamento annuale ricevuto: la scadenza va avanti di un anno (dalla scadenza attuale, o da oggi se già passata). */
+    public function pagamento(Request $request, Hotel $hotel): RedirectResponse
+    {
+        $base = $hotel->scadenza() && $hotel->scadenza()->isFuture() ? $hotel->scadenza() : CarbonImmutable::today();
+        $hotel->update(['pagato_fino_al' => $base->addYear()->toDateString()]);
+
+        EventLog::withoutGlobalScopes()->create([
+            'hotel_id' => $hotel->id, 'user_id' => $request->user()->id, 'tipo' => 'pagamento_registrato',
+            'payload' => ['pagato_fino_al' => $hotel->pagato_fino_al->toDateString(), 'piano' => $hotel->piano],
+        ]);
+
+        return back()->with('ok', "Pagamento registrato: {$hotel->nome} è a posto fino al ".$hotel->pagato_fino_al->format('d/m/Y').'.');
+    }
+
     /** Elimina l'hotel con tutti i suoi dati e foto. Va scritto il nome per conferma. */
     public function destroy(Request $request, Hotel $hotel): RedirectResponse
     {
@@ -106,6 +122,9 @@ class HotelController extends Controller
             'fuso_orario' => ['required', Rule::in($this->fusi())],
             'pin_richiesto' => ['nullable', 'boolean'],
             'attivo' => ['nullable', 'boolean'],
+            'piano' => ['nullable', Rule::in(array_keys(Hotel::PIANI))],
+            'prova_fino_al' => ['nullable', 'date_format:Y-m-d'],
+            'pagato_fino_al' => ['nullable', 'date_format:Y-m-d'],
         ]);
         $dati['pin_richiesto'] = $request->boolean('pin_richiesto');
         $dati['attivo'] = $request->boolean('attivo');

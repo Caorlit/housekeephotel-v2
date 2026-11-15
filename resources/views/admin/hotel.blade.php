@@ -14,6 +14,22 @@
     </form>
 
     <div class="space-y-6">
+        @php $giorni = $hotel->giorniAllaScadenza(); @endphp
+        <section @class(['rounded-xl shadow-sm p-5', 'bg-red-50 border border-red-200' => $giorni !== null && $giorni < 0, 'bg-amber-50 border border-amber-200' => $giorni !== null && $giorni >= 0 && $giorni <= 7, 'bg-white' => $giorni === null || $giorni > 7])>
+            <h2 class="font-semibold">Abbonamento</h2>
+            @if ($hotel->scadenza())
+                <p class="mt-1">{{ $hotel->tipoScadenza() === 'prova' ? 'Prova gratuita fino al' : 'Pagato fino al' }} <b>{{ $hotel->scadenza()->format('d/m/Y') }}</b>
+                    <span class="text-slate-500">({{ $giorni < 0 ? 'scaduta da '.abs($giorni).' giorni' : ($giorni === 0 ? 'scade oggi' : 'tra '.$giorni.' giorni') }})</span>
+                    @if ($hotel->piano) · piano {{ \App\Models\Hotel::PIANI[$hotel->piano] }} @endif</p>
+            @else
+                <p class="mt-1 text-slate-500">Nessuna scadenza impostata.</p>
+            @endif
+            <form method="POST" action="{{ route('admin.hotel.pagamento', $hotel) }}" class="mt-3" onsubmit="return confirm('Registrare il pagamento annuale di {{ $hotel->nome }}? La scadenza va avanti di un anno.')">
+                @csrf
+                <button class="rounded-lg bg-slate-900 text-white px-4 py-2 font-semibold">€ Registra pagamento annuale</button>
+            </form>
+        </section>
+
         <section class="bg-white rounded-xl shadow-sm p-5">
             <h2 class="font-semibold mb-3">Utenti della reception</h2>
             <div class="space-y-2 mb-4">

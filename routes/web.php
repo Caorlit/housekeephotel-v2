@@ -101,6 +101,7 @@ Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')
     Route::get('/hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
     Route::put('/hotel/{hotel}', [HotelController::class, 'update'])->name('hotel.update');
     Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
+    Route::post('/hotel/{hotel}/pagamento', [HotelController::class, 'pagamento'])->name('hotel.pagamento');
     Route::post('/hotel/{hotel}/utenti', [UtentiController::class, 'store'])->name('utenti.store');
     Route::put('/utenti/{user}', [UtentiController::class, 'update'])->name('utenti.update');
     Route::post('/utenti/{user}/invito', [UtentiController::class, 'invito'])->name('utenti.invito');

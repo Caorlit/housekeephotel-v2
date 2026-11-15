@@ -11,3 +11,4 @@ Schedule::command('hk:genera-giornate')->hourly()->withoutOverlapping();
 // Avvisi ai superadmin (ora italiana).
 Schedule::command('hk:riepilogo-settimanale')->weeklyOn(1, '7:13')->timezone('Europe/Rome');
 Schedule::command('hk:controlla-inattivita')->dailyAt('9:17')->timezone('Europe/Rome');
+Schedule::command('hk:controlla-scadenze')->dailyAt('9:23')->timezone('Europe/Rome');

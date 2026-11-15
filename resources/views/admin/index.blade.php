@@ -12,7 +12,7 @@
         <thead class="text-left text-slate-500 border-b">
             <tr>
                 <th class="p-3">Hotel</th><th class="p-3 text-right">Camere</th><th class="p-3 text-right">Addette</th><th class="p-3 text-right">Utenti</th>
-                <th class="p-3 text-right">Pulite 7 gg</th><th class="p-3 text-right">Segnalazioni aperte</th><th class="p-3">Ultima attività</th>
+                <th class="p-3 text-right">Pulite 7 gg</th><th class="p-3 text-right">Segnalazioni aperte</th><th class="p-3">Ultima attività</th><th class="p-3">Scadenza</th>
             </tr>
         </thead>
         <tbody class="divide-y">
@@ -28,12 +28,16 @@
                     <td @class(['p-3', 'text-red-700 font-semibold' => $h->attivo && (! $t || $t->lt(now()->subDays(7)))])>
                         {{ $t ? $t->timezone($h->fuso_orario)->format('d/m/Y H:i') : 'mai' }}
                     </td>
+                    @php $g = $h->giorniAllaScadenza(); @endphp
+                    <td @class(['p-3 whitespace-nowrap', 'text-red-700 font-bold' => $g !== null && $g < 0, 'text-amber-700 font-bold' => $g !== null && $g >= 0 && $g <= 7])>
+                        @if ($h->scadenza()){{ $h->scadenza()->format('d/m/Y') }} <span class="text-xs font-normal text-slate-500">{{ $h->tipoScadenza() }}</span>@else — @endif
+                    </td>
                 </tr>
             @empty
-                <tr><td colspan="7" class="p-6 text-slate-500">Nessun hotel. Creane uno con "Nuovo hotel".</td></tr>
+                <tr><td colspan="8" class="p-6 text-slate-500">Nessun hotel. Creane uno con "Nuovo hotel".</td></tr>
             @endforelse
         </tbody>
     </table>
 </div>
-<p class="mt-2 text-xs text-slate-500">In rosso: hotel attivi senza attività da più di 7 giorni (ricevi anche un'email).</p>
+<p class="mt-2 text-xs text-slate-500">Ultima attività in rosso: hotel fermo da più di 7 giorni. Scadenza in arancione: entro 7 giorni; in rosso: passata (ricevi un'email in entrambi i casi).</p>
 @endsection
