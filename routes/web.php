@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Addetta\AddettaController;
 use App\Http\Controllers\Admin\HotelController;
+use App\Http\Controllers\Admin\RichiesteController;
 use App\Http\Controllers\Admin\StatisticheController;
 use App\Http\Controllers\Admin\UtentiController;
 use App\Http\Controllers\Auth\LoginController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Reception\GiornataController;
 use App\Http\Controllers\Reception\ImportaPrenotazioniController;
 use App\Http\Controllers\Reception\PrenotazioniController;
 use App\Http\Controllers\Reception\TabelloneController;
+use App\Http\Controllers\RichiestaProvaController;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
@@ -92,6 +94,8 @@ Route::middleware(['auth', 'ruolo:reception', 'hotel'])->prefix('reception')->na
 Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('index');
     Route::get('/statistiche', [StatisticheController::class, 'index'])->name('statistiche');
+    Route::get('/richieste', [RichiesteController::class, 'index'])->name('richieste');
+    Route::put('/richieste/{richiesta}', [RichiesteController::class, 'update'])->name('richieste.update');
     Route::get('/hotel/nuovo', [HotelController::class, 'create'])->name('hotel.create');
     Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
     Route::get('/hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
@@ -101,6 +105,12 @@ Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')
     Route::put('/utenti/{user}', [UtentiController::class, 'update'])->name('utenti.update');
     Route::post('/utenti/{user}/invito', [UtentiController::class, 'invito'])->name('utenti.invito');
 });
+
+// Modulo "Prova gratis" del sito housekeephotel.com (form HTML da un altro dominio).
+Route::post('/richiesta-prova', [RichiestaProvaController::class, 'store'])
+    ->middleware('throttle:5,10')
+    ->withoutMiddleware([StartSession::class, ShareErrorsFromSession::class, PreventRequestForgery::class])
+    ->name('richiesta-prova');
 
 // Foto di una segnalazione inoltrata su WhatsApp: link firmato, scade dopo 30 giorni.
 Route::get('/f/{issue}', [FotoController::class, 'condivisa'])

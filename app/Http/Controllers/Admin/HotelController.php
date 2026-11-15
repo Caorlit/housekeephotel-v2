@@ -9,6 +9,7 @@ use App\Models\Issue;
 use App\Models\Room;
 use App\Models\RoomDay;
 use App\Models\Staff;
+use App\Models\TrialRequest;
 use App\Models\User;
 use App\Support\Avvisi;
 use DateTimeZone;
@@ -38,14 +39,22 @@ class HotelController extends Controller
         ]);
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('admin.hotel-form', ['hotel' => new Hotel(['fuso_orario' => 'Europe/Rome', 'attivo' => true]), 'fusi' => $this->fusi()]);
+        // Dati precompilati quando si arriva da una richiesta di prova del sito.
+        return view('admin.hotel-form', [
+            'hotel' => new Hotel(['fuso_orario' => 'Europe/Rome', 'attivo' => true] + $request->only(['nome', 'email', 'telefono', 'indirizzo'])),
+            'fusi' => $this->fusi(),
+            'richiesta' => $request->integer('richiesta') ?: null,
+        ]);
     }
 
     public function store(Request $request): RedirectResponse
     {
         $hotel = Hotel::create($this->valida($request));
+        if ($richiesta = TrialRequest::find($request->integer('richiesta'))) {
+            $richiesta->update(['hotel_id' => $hotel->id, 'stato' => 'attivata']);
+        }
 
         Avvisi::superadmin("nuovo hotel: {$hotel->nome}", [
             "È stato creato l'hotel {$hotel->nome}".($hotel->indirizzo ? " ({$hotel->indirizzo})" : '').' da '.$request->user()->nome.'.',
