@@ -67,17 +67,17 @@ export default {
 
     prezzi: {
         titolo: 'Simple pricing, no strings attached',
-        sottotitolo: 'Less than a coffee a day, and it gives you back hours of phone calls.',
+        sottotitolo: 'One yearly subscription, one invoice. Unlimited housekeepers.',
         promo: 'Launch offer: <b>3 months free</b>. Just sign up, no credit card required.',
-        mese: '/month',
+        mese: '/year',
         piani: [
-            ['Small', '€30', 'up to 35 rooms', 'up to 3 housekeepers'],
-            ['Medium', '€60', 'up to 70 rooms', 'up to 5 housekeepers'],
-            ['Large', 'On request', 'more than 70 rooms', 'tailored team size'],
+            ['Small', '€199', 'up to 35 rooms', 'unlimited housekeepers'],
+            ['Medium', '€379', '36 to 70 rooms', 'unlimited housekeepers'],
+            ['Large', 'On request', 'more than 70 rooms', 'unlimited housekeepers'],
         ],
-        inclusi: ['Board and housekeeper app', 'Import from your PMS', 'Forward on WhatsApp', 'Support by our team'],
+        inclusi: ['1 front desk user included', 'Board and housekeeper app', 'Import from your PMS', 'Forward on WhatsApp', 'Email support'],
         consigliato: 'Most popular',
-        note: 'Hotel setup €99 one-off · Extra front desk user €30/year · Prices excluding VAT',
+        note: 'Hotel setup €99 one-off · Extra front desk user €60/year · Phone and WhatsApp support €100/year · Prices excluding VAT',
         cta: 'Start the free trial',
     },
 
@@ -90,7 +90,7 @@ export default {
             ['Does it work with our PMS?', 'It imports bookings from a CSV file, which almost every hotel software can export. Check-outs and stay-overs are created automatically.'],
             ['Do we need company phones?', 'No. The housekeeper\'s own phone works, Android or iPhone, or a tablet on each floor.'],
             ['Are the photos of the reports safe?', 'Only hotel staff can see them and they are deleted automatically after 90 days. Links forwarded on WhatsApp expire after 30 days.'],
-            ['How does the free trial work?', 'Write to us, we activate your hotel and help you get started. For 3 months you pay nothing and need no credit card: then you decide.'],
+            ['How does the free trial work?', 'Write to us, we activate your hotel and help you get started. For 3 months you pay nothing and need no credit card. At the end we send you the details for the yearly payment: you decide whether to continue.'],
         ],
     },
 

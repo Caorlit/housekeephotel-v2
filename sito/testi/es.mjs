@@ -67,17 +67,17 @@ export default {
 
     prezzi: {
         titolo: 'Precios sencillos, sin permanencia',
-        sottotitolo: 'Cuesta menos que un café al día y te devuelve horas de llamadas.',
+        sottotitolo: 'Una suscripción anual, una sola factura. Camareras ilimitadas.',
         promo: 'Promoción de lanzamiento: <b>3 meses gratis</b>. Solo regístrate, sin tarjeta de crédito.',
-        mese: '/mes',
+        mese: '/año',
         piani: [
-            ['Small', '30 €', 'hasta 35 habitaciones', 'hasta 3 camareras'],
-            ['Medium', '60 €', 'hasta 70 habitaciones', 'hasta 5 camareras'],
-            ['Large', 'A consultar', 'más de 70 habitaciones', 'equipo a medida'],
+            ['Small', '199 €', 'hasta 35 habitaciones', 'camareras ilimitadas'],
+            ['Medium', '379 €', 'de 36 a 70 habitaciones', 'camareras ilimitadas'],
+            ['Large', 'A consultar', 'más de 70 habitaciones', 'camareras ilimitadas'],
         ],
-        inclusi: ['Panel y app para camareras', 'Importación desde tu PMS', 'Reenvío por WhatsApp', 'Asistencia de nuestro equipo'],
+        inclusi: ['1 recepcionista incluida', 'Panel y app para camareras', 'Importación desde tu PMS', 'Reenvío por WhatsApp', 'Asistencia por email'],
         consigliato: 'El más elegido',
-        note: 'Alta del hotel 99 € pago único · Recepcionista adicional 30 €/año · Precios sin IVA',
+        note: 'Alta del hotel 99 € pago único · Recepcionista adicional 60 €/año · Asistencia por teléfono y WhatsApp 100 €/año · Precios sin IVA',
         cta: 'Empieza la prueba gratuita',
     },
 
@@ -90,7 +90,7 @@ export default {
             ['¿Funciona con nuestro PMS?', 'Importa las reservas desde un archivo CSV, que casi todos los programas de hotel exportan. Salidas y repasos se crean solos.'],
             ['¿Hace falta un móvil de empresa?', 'No. Sirve el móvil de la camarera, Android o iPhone, o una tablet en cada planta.'],
             ['¿Las fotos de las incidencias están seguras?', 'Solo las ve el personal del hotel y se borran solas a los 90 días. El enlace reenviado por WhatsApp caduca a los 30 días.'],
-            ['¿Cómo funciona la prueba gratuita?', 'Nos escribes, activamos tu hotel y te ayudamos a empezar. Durante 3 meses no pagas nada y no hace falta tarjeta: luego decides tú.'],
+            ['¿Cómo funciona la prueba gratuita?', 'Nos escribes, activamos tu hotel y te ayudamos a empezar. Durante 3 meses no pagas nada y no hace falta tarjeta. Al final te enviamos los datos para el pago anual: tú decides si continuar.'],
         ],
     },
 

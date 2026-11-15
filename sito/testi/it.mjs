@@ -67,17 +67,17 @@ export default {
 
     prezzi: {
         titolo: 'Prezzi semplici, nessun vincolo',
-        sottotitolo: 'Costa meno di un caffè al giorno, e ti restituisce ore di telefonate.',
+        sottotitolo: 'Un abbonamento annuale, un\'unica fattura. Le addette sono illimitate.',
         promo: 'Promo lancio: <b>3 mesi gratis</b>. Basta registrarsi, senza carta di credito.',
-        mese: '/mese',
+        mese: '/anno',
         piani: [
-            ['Small', '30 €', 'fino a 35 camere', 'fino a 3 addette'],
-            ['Medium', '60 €', 'fino a 70 camere', 'fino a 5 addette'],
-            ['Large', 'Su richiesta', 'oltre 70 camere', 'addette su misura'],
+            ['Small', '199 €', 'fino a 35 camere', 'addette illimitate'],
+            ['Medium', '379 €', 'da 36 a 70 camere', 'addette illimitate'],
+            ['Large', 'Su richiesta', 'oltre 70 camere', 'addette illimitate'],
         ],
-        inclusi: ['Tabellone e app per le addette', 'Import dal gestionale', 'Inoltro su WhatsApp', 'Assistenza in italiano'],
+        inclusi: ['1 receptionist inclusa', 'Tabellone e app per le addette', 'Import dal gestionale', 'Inoltro su WhatsApp', 'Assistenza via email'],
         consigliato: 'Il più scelto',
-        note: 'Attivazione hotel 99 € una tantum · Receptionist aggiuntivo 30 €/anno · Prezzi IVA esclusa',
+        note: 'Attivazione hotel 99 € una tantum · Receptionist in più 60 €/anno · Assistenza telefonica e WhatsApp 100 €/anno · Prezzi IVA esclusa',
         cta: 'Inizia la prova gratuita',
     },
 
@@ -90,7 +90,7 @@ export default {
             ['Funziona con il nostro gestionale?', 'Importa le prenotazioni da un file CSV, che quasi tutti i gestionali esportano. Cambi e riassetti si creano da soli.'],
             ['Serve un telefono aziendale?', 'No. Va bene il telefono dell\'addetta, Android o iPhone, oppure un tablet in dotazione al piano.'],
             ['Le foto delle segnalazioni sono al sicuro?', 'Le vede solo lo staff dell\'hotel e si cancellano da sole dopo 90 giorni. Il link inoltrato su WhatsApp scade dopo 30 giorni.'],
-            ['Come funziona la prova gratuita?', 'Ci scrivi, attiviamo il tuo hotel e ti aiutiamo a partire. Per 3 mesi non paghi nulla e non serve la carta di credito: alla fine decidi tu.'],
+            ['Come funziona la prova gratuita?', 'Ci scrivi, attiviamo il tuo hotel e ti aiutiamo a partire. Per 3 mesi non paghi nulla e non serve la carta di credito. Alla fine ti mandiamo i dati per il pagamento annuale: decidi tu se continuare.'],
         ],
     },
 
