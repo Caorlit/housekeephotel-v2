@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "sito": "node sito/genera.mjs && vite build --config vite.sito.config.js"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

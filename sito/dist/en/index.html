@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Housekeep Hotel – Simple communication between front desk and housekeeping</title>
+    <meta name="description" content="A web app for hotels: housekeepers tap the room, the front desk knows instantly when it is ready. No passwords, works without Wi-Fi, in 6 languages. 3 months free.">
+    <link rel="canonical" href="https://housekeephotel.com/en/">
+    <link rel="alternate" hreflang="it" href="https://housekeephotel.com/">
+    <link rel="alternate" hreflang="en" href="https://housekeephotel.com/en/">
+    <link rel="alternate" hreflang="es" href="https://housekeephotel.com/es/">
+    <link rel="alternate" hreflang="x-default" href="https://housekeephotel.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Housekeep Hotel – Simple communication between front desk and housekeeping">
+    <meta property="og:description" content="A web app for hotels: housekeepers tap the room, the front desk knows instantly when it is ready. No passwords, works without Wi-Fi, in 6 languages. 3 months free.">
+    <meta property="og:url" content="https://housekeephotel.com/en/">
+    <meta property="og:image" content="https://housekeephotel.com/immagini/condivisione.png">
+    <meta property="og:locale" content="en_GB">
+    <meta name="theme-color" content="#0EA5E9">
+    <link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/brand/housekeep-simbolo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+    <link rel="preload" href="/font/nunito-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" crossorigin href="/assets/stile-BpqaibIE.css">
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="contenitore flex items-center gap-4 h-16">
+        <a href="/en/" class="shrink-0" aria-label="Housekeep Hotel"><img src="/brand/housekeep-logo.svg" alt="Housekeep Hotel" class="h-9 sm:h-10 w-auto" width="230" height="46"></a>
+        <nav class="hidden lg:flex items-center gap-1 ml-4 text-slate-700 font-semibold" aria-label="Menu">
+            <a href="#come" class="px-3 py-2 rounded-lg hover:bg-slate-100">How it works</a><a href="#addette" class="px-3 py-2 rounded-lg hover:bg-slate-100">Housekeepers</a><a href="#reception" class="px-3 py-2 rounded-lg hover:bg-slate-100">Front desk</a><a href="#prezzi" class="px-3 py-2 rounded-lg hover:bg-slate-100">Pricing</a><a href="#faq" class="px-3 py-2 rounded-lg hover:bg-slate-100">FAQ</a>
+        </nav>
+        <div class="ml-auto flex items-center gap-2 text-sm">
+            <div class="hidden sm:flex items-center gap-1 text-slate-600" aria-label="Lingua"><a href="/" hreflang="it" lang="it" class="px-2 py-1 rounded-md hover:bg-slate-100">IT</a><span class="px-2 py-1 rounded-md bg-sky-100 text-sky-800 font-bold" aria-current="true">EN</span><a href="/es/" hreflang="es" lang="es" class="px-2 py-1 rounded-md hover:bg-slate-100">ES</a></div>
+            <a href="https://app.housekeephotel.com/login" class="hidden md:inline px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 font-semibold">Log in</a>
+            <a href="#prova" class="pulsante pulsante-primario !py-2 !px-4">Try it free</a>
+        </div>
+    </div>
+    <div class="sm:hidden border-t border-slate-100 py-1 flex justify-center gap-1 text-sm text-slate-600"><a href="/" hreflang="it" lang="it" class="px-2 py-1 rounded-md hover:bg-slate-100">IT</a><span class="px-2 py-1 rounded-md bg-sky-100 text-sky-800 font-bold" aria-current="true">EN</span><a href="/es/" hreflang="es" lang="es" class="px-2 py-1 rounded-md hover:bg-slate-100">ES</a></div>
+</header>
+<main>
+    <!-- Apertura -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white">
+        <svg class="absolute -bottom-6 left-0 w-full h-40 text-teal-100" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 96c180-56 360-56 540 0s360 56 540 0 270-40 360-16v80H0z"/></svg>
+        <div class="contenitore relative grid lg:grid-cols-[1.05fr_1fr] gap-12 items-center pt-12 pb-20 lg:pt-20 lg:pb-28">
+            <div>
+                <p class="inline-flex items-center gap-2 rounded-full bg-teal-100 text-teal-900 font-bold px-4 py-1.5 text-sm">🎁 Launch offer: 3 months free</p>
+                <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0B3B5C] leading-[1.05]">Talk easily with the people who clean your rooms</h1>
+                <p class="mt-5 text-lg sm:text-xl text-slate-600 max-w-xl">Just a web app: nothing to install, no passwords. The housekeeper taps the room, the front desk knows instantly when it is ready.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#prova" class="pulsante pulsante-primario">Try it free for 3 months</a>
+                    <a href="#prova" data-interesse="demo" class="pulsante pulsante-secondario">Book a demo</a>
+                </div>
+                <p class="mt-4 text-sm text-slate-500">No credit card · Up and running in a day</p>
+            </div>
+            <div class="relative h-[460px] sm:h-[520px]">
+                
+<div class="schermo absolute right-0 top-6 w-[92%] hidden sm:block"><div class="schermo-barra"><span></span><span></span><span></span></div><img src="/immagini/tabellone.webp" alt="The front desk sees everything live" width="1280" height="800" loading="lazy" decoding="async"></div>
+                
+<div class="telefono absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 bottom-0 w-56 sm:w-60"><img src="/immagini/telefono-en.webp" alt="The housekeeper taps the room" width="390" height="844" loading="lazy" decoding="async"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problemi -->
+    <section class="py-20 bg-white">
+        <div class="contenitore">
+            <h2 class="titolo-sezione">No more lost messages and running down corridors</h2>
+            <p class="sottotitolo-sezione">Today ready rooms travel through chats, phone calls and walkie-talkies. With Housekeep everything is in one place.</p>
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <div class="size-12 rounded-xl bg-gradient-to-br from-sky-500 to-teal-500 text-white flex items-center justify-center"><svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="m9 10 2 2 4-4"/></svg></div>
+                    <h3 class="mt-4 text-lg font-extrabold text-[#0B3B5C]">No lost messages</h3>
+                    <p class="mt-2 text-slate-600">Every room and every issue stays on the board: nothing gets buried in group chats.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <div class="size-12 rounded-xl bg-gradient-to-br from-sky-500 to-teal-500 text-white flex items-center justify-center"><svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div>
+                    <h3 class="mt-4 text-lg font-extrabold text-[#0B3B5C]">Know instantly when a room is ready</h3>
+                    <p class="mt-2 text-slate-600">The housekeeper taps, the tile turns green and the front desk hears a chime. In real time.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <div class="size-12 rounded-xl bg-gradient-to-br from-sky-500 to-teal-500 text-white flex items-center justify-center"><svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="14" rx="2"/><path d="M10 7V3M10 11h4M10 14h4"/></svg></div>
+                    <h3 class="mt-4 text-lg font-extrabold text-[#0B3B5C]">No walkie-talkies, no phone calls</h3>
+                    <p class="mt-2 text-slate-600">No need to look for anyone: the status of every room is always in front of you.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <div class="size-12 rounded-xl bg-gradient-to-br from-sky-500 to-teal-500 text-white flex items-center justify-center"><svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></div>
+                    <h3 class="mt-4 text-lg font-extrabold text-[#0B3B5C]">Connected to WhatsApp</h3>
+                    <p class="mt-2 text-slate-600">Forward an issue to maintenance with one tap and alert housekeepers about urgent rooms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Come funziona -->
+    <section id="come" class="py-20 bg-slate-50 scroll-mt-16">
+        <div class="contenitore">
+            <h2 class="titolo-sezione">How it works</h2>
+            <p class="sottotitolo-sezione">Three gestures, zero training.</p>
+            <div class="mt-14 grid md:grid-cols-3 gap-10">
+                
+                <div class="flex flex-col">
+                    <div class="h-[400px] flex items-end justify-center">
+                        
+<div class="telefono w-52"><img src="/immagini/telefono-en.webp" alt="The housekeeper taps the room" width="390" height="844" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <span class="shrink-0 size-10 rounded-full bg-[#0B3B5C] text-white font-extrabold flex items-center justify-center">1</span>
+                        <div><h3 class="text-xl font-extrabold text-[#0B3B5C]">The housekeeper taps the room</h3><p class="mt-1 text-slate-600">One tap when she starts (yellow), one when she is done (green). It even works where there is no signal.</p></div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="h-[400px] flex items-end justify-center">
+                        
+<div class="schermo w-full"><div class="schermo-barra"><span></span><span></span><span></span></div><img src="/immagini/tabellone.webp" alt="The front desk sees everything live" width="1280" height="800" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <span class="shrink-0 size-10 rounded-full bg-[#0B3B5C] text-white font-extrabold flex items-center justify-center">2</span>
+                        <div><h3 class="text-xl font-extrabold text-[#0B3B5C]">The front desk sees everything live</h3><p class="mt-1 text-slate-600">The board updates by itself and chimes when a room is ready or an issue comes in.</p></div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="h-[400px] flex items-end justify-center">
+                        
+<div class="telefono w-52"><img src="/immagini/segnalazione-en.webp" alt="A problem? Just a photo" width="390" height="844" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <span class="shrink-0 size-10 rounded-full bg-[#0B3B5C] text-white font-extrabold flex items-center justify-center">3</span>
+                        <div><h3 class="text-xl font-extrabold text-[#0B3B5C]">A problem? Just a photo</h3><p class="mt-1 text-slate-600">The red button opens the camera: the report reaches the front desk instantly, ready to forward on WhatsApp.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Addette -->
+    <section id="addette" class="py-20 bg-white scroll-mt-16">
+        <div class="contenitore grid lg:grid-cols-[1fr_auto] gap-14 items-center">
+            <div>
+                <h2 class="titolo-sezione !text-left">Easy for everyone, from day one</h2>
+                <p class="sottotitolo-sezione !text-left !mx-0">Designed for people who don't like apps: big buttons, clear colours, very few words.</p>
+                <ul class="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-6">
+                    
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">No passwords</b><span class="text-slate-600">Each housekeeper has her own QR code: she scans it and her page opens.</span></span></li>
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">Works without Wi-Fi</b><span class="text-slate-600">In corridors with no signal, taps are kept on the phone and sent automatically when the connection returns.</span></span></li>
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">Big buttons, even with gloves</b><span class="text-slate-600">Huge numbers and colours: grey to do, yellow cleaning, green ready.</span></span></li>
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">In her own language</b><span class="text-slate-600">The front desk chooses the language for each housekeeper.</span></span></li>
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">Installs like an app</b><span class="text-slate-600">An icon on the Home screen, no app store needed.</span></span></li>
+                    <li class="flex gap-3"><span class="shrink-0 mt-0.5 size-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>
+                        <span><b class="block text-[#0B3B5C] text-lg">The coming days at a glance</b><span class="text-slate-600">The calendar shows the rooms planned for the week.</span></span></li>
+                </ul>
+                <p class="mt-8 inline-block rounded-xl bg-sky-50 text-sky-900 font-semibold px-4 py-3">🌍 Italiano · English · Română · Українська · Español · বাংলা</p>
+            </div>
+            <div class="flex justify-center gap-5">
+                
+<div class="telefono w-52 hidden sm:block"><img src="/immagini/telefono-en.webp" alt="Easy for everyone, from day one" width="390" height="844" loading="lazy" decoding="async"></div>
+                
+<div class="telefono w-52 sm:mt-16"><img src="/immagini/prossimi-en.webp" alt="The coming days at a glance" width="390" height="844" loading="lazy" decoding="async"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reception -->
+    <section id="reception" class="py-20 bg-gradient-to-b from-slate-50 to-white scroll-mt-16">
+        <div class="contenitore">
+            <h2 class="titolo-sezione">Your whole day under control, on one screen</h2>
+            <p class="sottotitolo-sezione">For the front desk and the head housekeeper: on a PC or tablet, nothing to install.</p>
+            
+<div class="schermo mt-12 max-w-5xl mx-auto"><div class="schermo-barra"><span></span><span></span><span></span></div><img src="/immagini/tabellone.webp" alt="Live board" width="1280" height="800" loading="lazy" decoding="async"></div>
+            <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+                
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Live board</h3><p class="mt-1 text-slate-600">Every room coloured by status, with housekeeper and time. Filter by floor or by housekeeper.</p></div>
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Sounds and notifications</h3><p class="mt-1 text-slate-600">A chime when a room is ready, a louder one when an issue is reported.</p></div>
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Import from your PMS</h3><p class="mt-1 text-slate-600">Upload your bookings file: check-outs and stay-overs are created automatically, for the same housekeeper.</p></div>
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Your day ready in a minute</h3><p class="mt-1 text-slate-600">Assign rooms with a tap, distribute them automatically, handle days off.</p></div>
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Forward on WhatsApp</h3><p class="mt-1 text-slate-600">Reports with photos go to maintenance, urgent rooms to the housekeeper: in her language.</p></div>
+                <div><h3 class="flex items-center gap-2 text-lg font-extrabold text-[#0B3B5C]"><span class="size-2.5 rounded-full bg-gradient-to-br from-sky-500 to-teal-500"></span>Statistics</h3><p class="mt-1 text-slate-600">Average cleaning times, rooms per housekeeper, resolved issues.</p></div>
+            </div>
+            <div class="mt-14 grid md:grid-cols-2 gap-6">
+                
+<div class="schermo "><div class="schermo-barra"><span></span><span></span><span></span></div><img src="/immagini/giornata.webp" alt="Your day ready in a minute" width="1280" height="800" loading="lazy" decoding="async"></div>
+                
+<div class="schermo "><div class="schermo-barra"><span></span><span></span><span></span></div><img src="/immagini/prenotazioni.webp" alt="Import from your PMS" width="1280" height="800" loading="lazy" decoding="async"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prezzi -->
+    <section id="prezzi" class="py-20 bg-white scroll-mt-16">
+        <div class="contenitore">
+            <h2 class="titolo-sezione">Simple pricing, no strings attached</h2>
+            <p class="sottotitolo-sezione">Less than a coffee a day, and it gives you back hours of phone calls.</p>
+            <p class="mt-8 mx-auto max-w-2xl text-center rounded-2xl bg-gradient-to-r from-sky-500 to-teal-500 text-white text-lg px-6 py-4 shadow">🎁 Launch offer: <b>3 months free</b>. Just sign up, no credit card required.</p>
+            <div class="mt-10 grid md:grid-cols-3 gap-6 items-stretch">
+                
+                <div class="relative rounded-3xl border border-teal-500 ring-2 ring-teal-500 shadow-xl p-8 flex flex-col">
+                    <span class="absolute -top-3 left-8 rounded-full bg-teal-500 text-white text-xs font-bold px-3 py-1 uppercase tracking-wide">Most popular</span>
+                    <h3 class="text-xl font-extrabold text-[#0B3B5C]">Small</h3>
+                    <p class="mt-4"><span class="text-4xl font-extrabold text-[#0B3B5C]">€30</span><span class="text-slate-500">/month</span></p>
+                    <ul class="mt-6 space-y-2 text-slate-700">
+                        <li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>up to 35 rooms</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>up to 3 housekeepers</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Board and housekeeper app</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Import from your PMS</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Forward on WhatsApp</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Support by our team</li>
+                    </ul>
+                    <a href="#prova" class="mt-auto pt-8"><span class="pulsante pulsante-primario w-full">Start the free trial</span></a>
+                </div>
+                <div class="relative rounded-3xl border border-slate-200 p-8 flex flex-col">
+                    
+                    <h3 class="text-xl font-extrabold text-[#0B3B5C]">Medium</h3>
+                    <p class="mt-4"><span class="text-4xl font-extrabold text-[#0B3B5C]">€60</span><span class="text-slate-500">/month</span></p>
+                    <ul class="mt-6 space-y-2 text-slate-700">
+                        <li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>up to 70 rooms</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>up to 5 housekeepers</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Board and housekeeper app</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Import from your PMS</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Forward on WhatsApp</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Support by our team</li>
+                    </ul>
+                    <a href="#prova" class="mt-auto pt-8"><span class="pulsante pulsante-secondario w-full">Start the free trial</span></a>
+                </div>
+                <div class="relative rounded-3xl border border-slate-200 p-8 flex flex-col">
+                    
+                    <h3 class="text-xl font-extrabold text-[#0B3B5C]">Large</h3>
+                    <p class="mt-4"><span class="text-4xl font-extrabold text-[#0B3B5C]">On request</span></p>
+                    <ul class="mt-6 space-y-2 text-slate-700">
+                        <li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>more than 70 rooms</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>tailored team size</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Board and housekeeper app</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Import from your PMS</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Forward on WhatsApp</li><li class="flex gap-2"><span class="text-teal-600"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span>Support by our team</li>
+                    </ul>
+                    <a href="#prova" class="mt-auto pt-8"><span class="pulsante pulsante-secondario w-full">Start the free trial</span></a>
+                </div>
+            </div>
+            <p class="mt-6 text-center text-sm text-slate-500">Hotel setup €99 one-off · Extra front desk user €30/year · Prices excluding VAT</p>
+        </div>
+    </section>
+
+    <!-- Domande -->
+    <section id="faq" class="py-20 bg-slate-50 scroll-mt-16">
+        <div class="contenitore max-w-3xl">
+            <h2 class="titolo-sezione">Frequently asked questions</h2>
+            <div class="mt-10 space-y-3">
+                
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">Do we need to install an app?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">No: it is a web app. It opens from the QR code and, if you like, can be added to the Home screen like a normal app.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">Do housekeepers need an account?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">No email, no password: each one has her personal QR code. If a phone is lost, the front desk simply generates a new code.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">What if there is no signal in the corridor?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">The app keeps working: taps are stored on the phone and sent as soon as the connection returns. Nothing gets lost.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">Does it work with our PMS?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">It imports bookings from a CSV file, which almost every hotel software can export. Check-outs and stay-overs are created automatically.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">Do we need company phones?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">No. The housekeeper's own phone works, Android or iPhone, or a tablet on each floor.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">Are the photos of the reports safe?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">Only hotel staff can see them and they are deleted automatically after 90 days. Links forwarded on WhatsApp expire after 30 days.</p>
+                </details>
+                <details class="group rounded-2xl bg-white border border-slate-200 px-6 py-4 open:shadow-md">
+                    <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-lg text-[#0B3B5C]">How does the free trial work?<span class="text-teal-600 text-2xl transition group-open:rotate-45">+</span></summary>
+                    <p class="mt-3 text-slate-600">Write to us, we activate your hotel and help you get started. For 3 months you pay nothing and need no credit card: then you decide.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova gratis -->
+    <section id="prova" class="py-20 bg-gradient-to-br from-sky-600 to-teal-600 text-white scroll-mt-16">
+        <div class="contenitore grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold">Try Housekeep free for 3 months</h2>
+                <p class="mt-4 text-lg text-sky-50">Fill in the form: we will get back to you within one working day and activate your hotel.</p>
+                <div class="mt-10 rounded-2xl bg-white/10 p-6">
+                    <p class="font-bold">Would you rather talk now?</p>
+                    <a href="https://wa.me/393516988159" class="mt-4 pulsante bg-[#25D366] text-white hover:bg-[#1ebe5b]"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg> Message us on WhatsApp</a>
+                    <p class="mt-4 text-sky-50"><a href="mailto:info@housekeephotel.com" class="underline">info@housekeephotel.com</a><br><a href="tel:+393516988159" class="underline">+39 351 698 8159</a></p>
+                </div>
+            </div>
+            <form method="POST" action="https://app.housekeephotel.com/richiesta-prova" class="rounded-3xl bg-white text-slate-800 p-6 sm:p-8 shadow-2xl grid sm:grid-cols-2 gap-4">
+                <p id="errore-modulo" class="sm:col-span-2 hidden rounded-xl bg-red-100 text-red-900 px-4 py-3 font-semibold">Something went wrong: please check the required fields and the privacy box, then try again.</p>
+                <input type="hidden" name="lingua" value="en">
+                <div class="hidden" aria-hidden="true"><label>Sito web<input name="sito_web" tabindex="-1" autocomplete="off"></label></div>
+                <label class="campo">Full name *<input name="nome" required maxlength="100" autocomplete="name"></label>
+                <label class="campo">Hotel name *<input name="hotel" required maxlength="150" autocomplete="organization"></label>
+                <label class="campo">City<input name="citta" maxlength="100" autocomplete="address-level2"></label>
+                <label class="campo">Number of rooms<input name="camere" type="number" min="1" max="5000" inputmode="numeric"></label>
+                <label class="campo">Email *<input name="email" type="email" required maxlength="255" autocomplete="email"></label>
+                <label class="campo">Phone<input name="telefono" type="tel" maxlength="40" autocomplete="tel"></label>
+                <label class="campo sm:col-span-2">What would you like?
+                    <select name="interesse"><option value="prova">Start the free trial</option><option value="demo">A guided demo</option></select></label>
+                <label class="campo sm:col-span-2">Message (optional)<textarea name="messaggio" rows="3" maxlength="2000"></textarea></label>
+                <label class="sm:col-span-2 flex items-start gap-3 text-sm text-slate-600"><input type="checkbox" name="privacy" value="1" required class="mt-1 size-5 accent-teal-600"><span>I have read the <a href="/en/privacy/" class="underline font-semibold text-teal-700">privacy notice</a> and agree to be contacted.</span></label>
+                <button class="sm:col-span-2 pulsante pulsante-primario w-full text-lg">Send request</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-slate-900 text-slate-300">
+    <div class="contenitore py-12 grid gap-8 md:grid-cols-[1fr_auto]">
+        <div>
+            <img src="/brand/housekeep-logo-negativo.svg" alt="Housekeep Hotel" class="h-10 w-auto" width="230" height="46" loading="lazy">
+            <p class="mt-4 text-sm leading-relaxed">Caorle.it S.r.l. · Via Giovanni Vescovo 2, 30021 Caorle (VE)<br>P.IVA [P.IVA da inserire]<br>
+            <a href="mailto:info@housekeephotel.com" class="hover:text-white">info@housekeephotel.com</a> · <a href="tel:+393516988159" class="hover:text-white">+39 351 698 8159</a></p>
+        </div>
+        <div class="flex flex-col gap-2 text-sm md:text-right">
+            <a href="/en/privacy/" class="hover:text-white">Privacy</a>
+            <a href="https://app.housekeephotel.com/login" class="hover:text-white">Log in to the app</a>
+            <a href="https://wa.me/393516988159" class="hover:text-white">WhatsApp</a>
+        </div>
+    </div>
+    <div class="border-t border-slate-800"><p class="contenitore py-4 text-xs text-slate-500">© 2026 Caorle.it S.r.l. · All rights reserved.</p></div>
+</footer>
+<script>
+    // Errore di ritorno dal modulo e scelta "demo" dai pulsanti.
+    if (new URLSearchParams(location.search).has('errore')) document.getElementById('errore-modulo').classList.remove('hidden');
+    document.querySelectorAll('[data-interesse]').forEach((a) => a.addEventListener('click', () => {
+        document.querySelector('select[name=interesse]').value = a.dataset.interesse;
+    }));
+</script>
+</body>
+</html>

@@ -74,4 +74,11 @@ class RichiestaProvaTest extends TestCase
         $u = User::factory()->create(['hotel_id' => Hotel::factory()->create()->id]);
         $this->actingAs($u)->get('/admin/richieste')->assertForbidden();
     }
+
+    public function test_scelta_demo_guidata(): void
+    {
+        Notification::fake();
+        $this->post('/richiesta-prova', $this->dati(['interesse' => 'demo', 'messaggio' => 'Dopo le 15']));
+        $this->assertSame('[Chiede una demo guidata] Dopo le 15', TrialRequest::first()->messaggio);
+    }
 }

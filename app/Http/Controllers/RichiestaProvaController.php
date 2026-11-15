@@ -39,7 +39,11 @@ class RichiestaProvaController extends Controller
             return redirect()->away($sito.'/?errore=1#prova');
         }
 
-        $r = TrialRequest::create($v->validated() + ['lingua' => $lingua]);
+        $dati = $v->validated();
+        if ($request->input('interesse') === 'demo') {
+            $dati['messaggio'] = trim('[Chiede una demo guidata] '.($dati['messaggio'] ?? ''));
+        }
+        $r = TrialRequest::create($dati + ['lingua' => $lingua]);
 
         Avvisi::superadmin("richiesta di prova: {$r->hotel}", array_filter([
             "{$r->nome} chiede la prova gratuita per {$r->hotel}".($r->citta ? " ({$r->citta})" : '').'.',
