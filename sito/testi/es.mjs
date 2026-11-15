@@ -10,7 +10,7 @@ export default {
 
     hero: {
         etichetta: 'Promoción de lanzamiento: 3 meses gratis',
-        titolo: 'Comunícate fácilmente con quien limpia las habitaciones',
+        titolo: 'Comunícate fácilmente con tus camareras de pisos',
         sottotitolo: 'Basta una web app: nada que instalar y sin contraseñas. La camarera toca la habitación y recepción sabe al instante cuándo está lista.',
         cta1: 'Pruébalo gratis 3 meses',
         cta2: 'Solicita una demo',

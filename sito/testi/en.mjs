@@ -10,7 +10,7 @@ export default {
 
     hero: {
         etichetta: 'Launch offer: 3 months free',
-        titolo: 'Talk easily with the people who clean your rooms',
+        titolo: 'Talk easily with your housekeepers',
         sottotitolo: 'Just a web app: nothing to install, no passwords. The housekeeper taps the room, the front desk knows instantly when it is ready.',
         cta1: 'Try it free for 3 months',
         cta2: 'Book a demo',
