@@ -26,8 +26,8 @@
                 ];
         @endphp
         <nav class="bg-slate-900 text-white print:hidden">
-            <div class="max-w-7xl mx-auto px-4 min-h-14 flex flex-wrap items-center gap-x-1 gap-y-1 py-2">
-                <span class="flex items-center gap-2 font-bold mr-4"><img src="/brand/housekeep-simbolo.svg" alt="" class="size-7">Housekeep</span>
+            <div class="max-w-7xl mx-auto px-4 min-h-16 flex flex-wrap items-center gap-x-1 gap-y-1 py-2">
+                <a href="{{ url('/') }}" class="mr-4 shrink-0" aria-label="Housekeep Hotel"><img src="/brand/housekeep-logo-testata-negativo.svg" alt="Housekeep Hotel – Simple Hotel Communication" class="h-11 w-auto" width="202" height="44"></a>
                 @foreach ($voci as $rotta => $etichetta)
                     @if (Route::has($rotta))
                         <a href="{{ route($rotta) }}"
