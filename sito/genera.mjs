@@ -15,7 +15,7 @@ const PAGINE = path.join(QUI, 'pagine');
 const AZIENDA = {
     nome: 'Caorle.it S.r.l.',
     indirizzo: 'Via Giovanni Vescovo 2, 30021 Caorle (VE)',
-    piva: process.env.SITO_PIVA || '[P.IVA da inserire]',
+    piva: '03454290275',
     email: 'info@housekeephotel.com',
     telefono: '+39 351 698 8159',
     whatsapp: 'https://wa.me/393516988159',

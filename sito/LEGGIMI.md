@@ -22,4 +22,7 @@ npm run sito
 ```
 
 ## Pubblicazione
-Sul server del sito (vedi `sito/pubblica.sh`): `bash sito/pubblica.sh`, poi svuotare la cache della CDN.
+Il sito compilato vive in un repository separato, **Caorlit/housekeephotel-SIte** (solo file statici:
+il server del sito non vede il codice dell'app).
+1. In locale: `bash sito/esporta.sh` (compila e copia in `../housekeephotel-site/public`), poi commit e push di quel repository.
+2. Sul server del sito: `cd ~/websites/E9Vbc8AwP/.h5g/sito && bash pubblica.sh`, poi svuotare la cache della CDN.
