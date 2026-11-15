@@ -111,6 +111,7 @@
                             </template>
                             <button type="button" @click="segnalazione(s, 'risolta')" class="flex-1 rounded-lg bg-green-600 text-white px-2 py-1.5 text-sm font-semibold">✓ Risolta</button>
                         </div>
+                        <a :href="s.whatsapp" target="_blank" rel="noopener" class="mt-2 flex items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white px-2 py-1.5 text-sm font-semibold">📲 Inoltra su WhatsApp</a>
                     </div>
                 </template>
             </div>
@@ -151,6 +152,13 @@
                     </select>
                 </div>
 
+                <template x-if="aperta.urgente && whatsappAddetta(aperta)">
+                    <a :href="whatsappAddetta(aperta)" target="_blank" rel="noopener" class="block w-full text-center rounded-lg bg-[#25D366] text-white py-2 font-semibold"
+                       x-text="'📲 Avvisa ' + aperta.staff + ' su WhatsApp'"></a>
+                </template>
+                <template x-if="aperta.urgente && aperta.staff_id && !whatsappAddetta(aperta)">
+                    <p class="text-xs text-slate-500">Per avvisare <span x-text="aperta.staff"></span> su WhatsApp, aggiungi il suo telefono nella pagina Addette.</p>
+                </template>
                 <button type="button" @click="cambiaUrgente(aperta)" class="w-full rounded-lg py-2 font-semibold border-2"
                         :class="aperta.urgente ? 'bg-red-600 border-red-600 text-white' : 'border-red-600 text-red-700'"
                         x-text="aperta.urgente ? '🔥 Urgente (clicca per togliere)' : '🔥 Segna come urgente'"></button>

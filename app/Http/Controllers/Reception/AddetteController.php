@@ -28,7 +28,8 @@ class AddetteController extends Controller
         $dati = $request->validate([
             'nome' => ['required', 'string', 'max:60'],
             'lingua' => ['required', Rule::in(array_keys(Staff::LINGUE))],
-        ]);
+            'telefono' => ['nullable', 'string', 'max:30', 'regex:/^[0-9 +().\/-]{6,30}$/'],
+        ], ['telefono.regex' => 'Il telefono può contenere solo numeri (es. 347 123 4567).']);
 
         $staff = Staff::create($dati);
         EventLog::registra('addetta_creata', ['user_id' => $request->user()->id, 'staff_id' => $staff->id]);
@@ -41,8 +42,9 @@ class AddetteController extends Controller
         $dati = $request->validate([
             'nome' => ['required', 'string', 'max:60'],
             'lingua' => ['required', Rule::in(array_keys(Staff::LINGUE))],
+            'telefono' => ['nullable', 'string', 'max:30', 'regex:/^[0-9 +().\/-]{6,30}$/'],
             'attivo' => ['nullable', 'boolean'],
-        ]);
+        ], ['telefono.regex' => 'Il telefono può contenere solo numeri (es. 347 123 4567).']);
         $dati['attivo'] = $request->boolean('attivo');
 
         $staff->update($dati);

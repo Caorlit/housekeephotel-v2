@@ -15,8 +15,10 @@
                     @foreach ($lingue as $codice => $nome)<option value="{{ $codice }}">{{ $nome }}</option>@endforeach
                 </select>
             </label>
+            <label class="text-sm">Telefono <span class="text-slate-400">(facoltativo)</span><br><input name="telefono" inputmode="tel" maxlength="30" value="{{ old('telefono') }}" placeholder="347 123 4567" class="border rounded-lg px-3 py-2 w-40"></label>
             <button class="rounded-lg bg-slate-900 text-white px-4 py-2 font-semibold">Aggiungi</button>
         </div>
+        <p class="text-xs text-slate-500 mt-2">Il telefono serve solo per avvisarla su WhatsApp delle camere urgenti.</p>
     </form>
 
     <form method="POST" action="{{ route('reception.addette.pin-hotel') }}" class="bg-white rounded-xl shadow-sm p-4 md:w-80" x-data>
@@ -41,6 +43,7 @@
                     <select name="lingua" class="border rounded-lg px-2 py-2" aria-label="Lingua">
                         @foreach ($lingue as $codice => $nome)<option value="{{ $codice }}" @selected($a->lingua === $codice)>{{ $nome }}</option>@endforeach
                     </select>
+                    <input name="telefono" value="{{ $a->telefono }}" inputmode="tel" maxlength="30" placeholder="📱 telefono" class="border rounded-lg px-2 py-2 w-36" aria-label="Telefono (facoltativo)">
                     <label class="text-sm flex items-center gap-1"><input type="checkbox" name="attivo" value="1" @checked($a->attivo)> attiva</label>
                     @if ($a->pin)<span class="text-xs rounded-full bg-slate-200 px-2 py-0.5">🔒 PIN</span>@endif
                     <button x-show="cambiata" x-cloak class="rounded-lg bg-slate-900 text-white px-3 py-2 text-sm font-semibold">Salva</button>

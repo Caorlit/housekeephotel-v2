@@ -43,4 +43,6 @@ return [
     'previsione_avviso' => 'পূর্বাভাস: বদলাতে পারে',
     'oggi' => 'আজ',
     'nessuna_camera_giorno' => 'কোনো রুম নেই',
+    // Messaggio WhatsApp mandato dalla reception
+    'whatsapp_urgente' => '🔥 রুম :numero: জরুরি!',
 ];

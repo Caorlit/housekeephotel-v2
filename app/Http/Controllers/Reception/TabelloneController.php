@@ -11,6 +11,7 @@ use App\Models\Staff;
 use App\Services\GeneratoreGiornate;
 use App\Services\RoomStateService;
 use App\Support\CurrentHotel;
+use App\Support\WhatsApp;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -137,10 +138,23 @@ class TabelloneController extends Controller
                     ? $i->created_at->timezone($fuso)->format('H:i')
                     : $i->created_at->timezone($fuso)->format('d/m H:i'),
                 'foto' => $i->foto_path ? route('reception.foto', $i) : null,
+                'whatsapp' => WhatsApp::link(implode("\n", array_filter([
+                    '⚠️ Camera '.$i->roomDay?->room?->numero.' – '.$hotel->nome,
+                    $i->nota,
+                    'Segnalata'.($i->staff ? ' da '.$i->staff->nome : '').' il '.$i->created_at->timezone($fuso)->format('d/m \a\l\l\e H:i'),
+                    ($link = FotoController::linkCondiviso($i)) ? '📷 Foto: '.$link : null,
+                ]))),
             ])->values();
 
-        $addette = Staff::where('attivo', true)->orderBy('nome')->get(['id', 'nome'])
-            ->map(fn ($s) => ['id' => $s->id, 'nome' => $s->nome])->values();
+        $addette = Staff::where('attivo', true)->orderBy('nome')->get(['id', 'nome', 'lingua', 'telefono'])
+            ->map(fn ($s) => [
+                'id' => $s->id,
+                'nome' => $s->nome,
+                // Link WhatsApp per l'urgente, nella lingua dell'addetta (":numero" lo completa il browser).
+                'whatsapp' => WhatsApp::numero($s->telefono)
+                    ? WhatsApp::link(trans('addetta.whatsapp_urgente', ['numero' => '__NUMERO__'], $s->lingua), $s->telefono)
+                    : null,
+            ])->values();
 
         $dati = compact('oggi', 'camere', 'segnalazioni', 'addette');
 

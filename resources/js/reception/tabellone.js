@@ -101,6 +101,11 @@ export default () => {
         get aperte() {
             return this.segnalazioni.filter((s) => s.stato === 'aperta').length;
         },
+        /** Link WhatsApp all'addetta della camera, con il numero della camera nel testo. */
+        whatsappAddetta(c) {
+            const a = this.addette.find((x) => x.id === c.staff_id);
+            return a?.whatsapp ? a.whatsapp.replace('__NUMERO__', encodeURIComponent(c.numero)) : null;
+        },
         segnalazioniDi(c) {
             return this.segnalazioni.filter((s) => s.room_day_id === c.id);
         },

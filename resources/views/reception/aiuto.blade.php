@@ -82,6 +82,9 @@
             </ul>
             <h3>Segnalazioni</h3>
             <p>Arrivano nella colonna a destra con la foto (cliccala per ingrandirla). Clicca <b>👀 Presa in carico</b> quando qualcuno se ne occupa e <b>✓ Risolta</b> quando è sistemata: sparisce dalla colonna.</p>
+            <p><b>📲 Inoltra su WhatsApp</b>: apre WhatsApp con il messaggio già scritto (camera, nota, chi l'ha segnalata e il link alla foto); scegli il contatto, ad esempio il manutentore, e premi invia. Il link alla foto funziona solo per chi lo riceve e scade dopo 30 giorni.</p>
+            <h3>Avvisare un'addetta su WhatsApp</h3>
+            <p>Se nella pagina Addette hai inserito il suo telefono, quando segni una camera <b>urgente</b> nel pannello compare <b>📲 Avvisa … su WhatsApp</b>: il messaggio è già scritto nella sua lingua. Utile quando ha il telefono in tasca.</p>
             <h3>Filtri</h3>
             <p>In alto puoi mostrare solo un piano o solo un'addetta (o le camere non assegnate).</p>
         </section>
@@ -135,7 +138,7 @@
         <section id="addette" class="bg-white rounded-xl shadow-sm p-5">
             <h2>6. Addette</h2>
             <ul class="list-disc list-inside">
-                <li><b>Aggiungi</b>: nome + lingua dell'app (italiano, inglese, rumeno, ucraino, spagnolo, bengalese). L'addetta non deve impostare niente.</li>
+                <li><b>Aggiungi</b>: nome + lingua dell'app (italiano, inglese, rumeno, ucraino, spagnolo, bengalese). L'addetta non deve impostare niente. Il <b>telefono</b> è facoltativo: serve solo per avvisarla su WhatsApp delle camere urgenti.</li>
                 <li><b>🖨 Stampa foglio</b>: un foglio A4 con il QR code grande e le istruzioni nella sua lingua. Lei inquadra il QR con la fotocamera e si apre la sua pagina; conviene aggiungerla alla schermata Home.</li>
                 <li><b>▦ QR e link</b>: mostra il QR sullo schermo o copia il link da mandarle (es. su WhatsApp).</li>
                 <li><b>↻ Rigenera link</b>: se un telefono o un foglio finiscono in mani sbagliate. Il vecchio QR smette subito di funzionare: ristampa il foglio.</li>

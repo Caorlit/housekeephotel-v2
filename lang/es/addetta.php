@@ -43,4 +43,6 @@ return [
     'previsione_avviso' => 'Previsión: puede cambiar',
     'oggi' => 'Hoy',
     'nessuna_camera_giorno' => 'Ninguna habitación',
+    // Messaggio WhatsApp mandato dalla reception
+    'whatsapp_urgente' => '🔥 Habitación :numero: ¡urgente!',
 ];

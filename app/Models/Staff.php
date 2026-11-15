@@ -28,7 +28,7 @@ class Staff extends Model
 
     protected $table = 'staff';
 
-    protected $fillable = ['hotel_id', 'nome', 'lingua', 'attivo'];
+    protected $fillable = ['hotel_id', 'nome', 'lingua', 'telefono', 'attivo'];
 
     protected $hidden = ['token_accesso', 'pin'];
 

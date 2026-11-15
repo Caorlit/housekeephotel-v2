@@ -43,4 +43,6 @@ return [
     'previsione_avviso' => 'Estimare: se poate schimba',
     'oggi' => 'Azi',
     'nessuna_camera_giorno' => 'Nicio cameră',
+    // Messaggio WhatsApp mandato dalla reception
+    'whatsapp_urgente' => '🔥 Camera :numero: urgent!',
 ];

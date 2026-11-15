@@ -43,4 +43,6 @@ return [
     'previsione_avviso' => 'Forecast: may change',
     'oggi' => 'Today',
     'nessuna_camera_giorno' => 'No rooms',
+    // Messaggio WhatsApp mandato dalla reception
+    'whatsapp_urgente' => '🔥 Room :numero: urgent!',
 ];

@@ -43,4 +43,6 @@ return [
     'previsione_avviso' => 'Прогноз: може змінитися',
     'oggi' => 'Сьогодні',
     'nessuna_camera_giorno' => 'Немає номерів',
+    // Messaggio WhatsApp mandato dalla reception
+    'whatsapp_urgente' => '🔥 Номер :numero: терміново!',
 ];

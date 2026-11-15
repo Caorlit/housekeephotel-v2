@@ -102,6 +102,12 @@ Route::middleware(['auth', 'ruolo:superadmin'])->prefix('admin')->name('admin.')
     Route::post('/utenti/{user}/invito', [UtentiController::class, 'invito'])->name('utenti.invito');
 });
 
+// Foto di una segnalazione inoltrata su WhatsApp: link firmato, scade dopo 30 giorni.
+Route::get('/f/{issue}', [FotoController::class, 'condivisa'])
+    ->middleware(['signed', 'throttle:60,1'])
+    ->withoutMiddleware([StartSession::class, ShareErrorsFromSession::class, PreventRequestForgery::class])
+    ->name('foto.condivisa');
+
 // --- Addette: link personale /s/{token} -----------------------------------
 // Niente sessione né CSRF: l'accesso è il token segreto nell'URL
 // (così le azioni salvate offline possono partire anche ore dopo).
