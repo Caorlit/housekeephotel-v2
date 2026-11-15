@@ -10,7 +10,7 @@ export default {
 
     hero: {
         etichetta: 'Promo lancio: 3 mesi gratis',
-        titolo: 'Comunica facilmente con le addette ai piani',
+        titolo: 'Comunica facilmente con le cameriere ai piani',
         sottotitolo: 'Basta una web app: niente da installare e niente password. L\'addetta tocca la camera, la reception sa subito quando è pronta.',
         cta1: 'Prova gratis 3 mesi',
         cta2: 'Richiedi una demo',
